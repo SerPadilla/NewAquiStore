@@ -1,0 +1,769 @@
+                                                        /* CABECERA */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    height: 15vh;
+    padding: 0 40px;
+}
+
+.cabecera__imagen{
+    padding-right: 80px;
+}
+
+.cabecera__imagen img {
+    height: 50px;
+    width: 100x;
+}
+
+.cabecera__container {
+    display: flex;
+    justify-content: center;
+    width: 45%;
+    /* border: 2px solid rebeccapurple; */
+}
+
+.cabecera__buscador {
+    width: 100%;
+    text-align: justify;
+    padding-left: 5%;
+    background-color: rgb(238, 2338, 238);
+    border-radius: 2rem 0 0 2rem;
+    border: none;
+    font-size: 14px;
+    color: gray;
+    outline: none;
+}
+
+.cabecera__lupa {
+    display: flex;
+    align-items: center;
+    width: 5%;
+    height: inherit;
+    padding: 0 5px;
+    background-color: rgb(238, 2338, 238);
+    border-radius: 0 2rem 2rem 0;
+}
+
+.cabecera__btn-login {
+    padding: 10px 50px;
+    background-color: #FFFFFF;
+    color: #2A7AE4;
+    border: 1px solid #2A7AE4;
+    transition: .5s all ease-in-out;
+    text-decoration: none;
+}
+
+.cabecera__btn-login:hover {
+    background-color: #2A7AE4;
+    color: white;
+}
+
+                                                        /* BANNER */
+
+.banner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+    width: auto;
+    height: 50vh;
+    padding: 30px;
+    background-image: url(../img/STARWARS/559573.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.banner__info {
+    display: block;
+    justify-content: end;
+    align-items: end;
+    width: 100%;
+    height: 24vh;
+    padding: 10px 30px;
+}
+
+.banner__titulo {
+    margin-bottom: 20px;
+    font-size: 2.8rem;
+    color: white;
+}
+
+.banner__descripcion {
+    color: white;
+    margin-bottom: 15PX;
+}
+
+.banner__btn-consolas {
+    padding: 10px 50px;
+    background-color: #2A7AE4;
+    color: #FFF;
+    border: 1px solid #2A7AE4;
+    transition: .5s all ease-in-out;
+}
+
+.banner__btn-consolas:hover {
+    background-color: #FFF;
+    color: #2A7AE4;
+}
+
+                                            /* Seccion Star Wars */
+
+.star__wars {
+    width: 80%;
+    height: 25vh;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: grid;
+    gap: 20px;
+    
+}
+
+.starWars__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.starWars__titulo {
+    margin-bottom: 10px;
+    
+}
+
+.starWars__ver-todo a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #2A7AE4;
+    align-content: flex-end;
+}
+
+.starWars__productos {
+    padding: 0 0 100px 0;
+    text-align: center;
+}
+
+.starWars__productos h2 {
+    font-size: 40px;
+    color: #181713;
+    text-transform: capitalize;
+    margin-bottom: 55px;
+}
+
+
+
+.starWars__producto {
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 35px;
+}
+
+.starWars__producto img {
+    width: 150px;
+    height: 130px;
+    margin-bottom: 10px;
+}
+
+.starWars__producto h3 {
+    color: #4b73c8;
+}
+
+.starWars__producto p {
+    font-size: 15px;
+    margin: 0;
+    color: #181713;
+    font-weight: 600;
+}
+
+.product-content {
+    margin-top: 55px;
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px, 1fr)) ;
+    gap: 20px;
+}
+
+.starWars__link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 7px 25px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    background-color: #4d4bc8;
+    
+}
+
+                                                /* FOOTER */
+
+.rodapie {
+    height: 50vh;
+    padding: 150px 0;
+}
+
+.footer {
+    display: block;
+    height: 50vh;
+    background-color: #EAF2FD;
+    padding: 20px 0;
+}
+
+.footer__container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.footer__logo {
+    width: 28%;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.footer__links{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 28%;
+    /* height: 50vh; */
+    margin-top: 30px;
+}
+
+.footer__link {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    padding: 10px 0;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none;
+    color: #2A7AE4;
+}
+
+.footer__contacto {
+    display: flex;
+    flex-direction: column;
+    width: 28%;
+    margin-top: 30px;
+}
+
+.footer__titulo{
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.footer__nombre{
+    display: block;
+    width: 93.39%;
+    padding: 10px;
+    text-align: justify;
+    background-color: white;
+    font-size: 14px;
+    color: gray;
+}
+
+.footer__input{
+    display: block;
+    width: 96.4%;
+    padding: 5px 5px;
+    border: none;
+    margin-bottom: 10px;
+    outline: none;
+    background-color: white;
+}
+
+.footer__textarea {
+    width: 96.4%;
+    margin-bottom: 20px;
+    padding: 20px 0 0 10px;
+    border: none;
+    outline: none;
+}
+
+.footer__btn-enviar-mensaje {
+    width: 70%;
+    padding: 10px 50px;
+    background-color: #2A7AE4;
+    color: #FFF;
+    border: 1px solid #2A7AE4;
+    transition: .5s all ease-in-out;
+}
+
+.footer__btn-enviar-mensaje:hover {
+    background-color: #FFF;
+    color: #2A7AE4;
+}
+
+.final {
+    padding: 10px 0;
+    text-align: center;
+    
+}
+
+.final a {
+    margin: 0;
+    text-decoration: none;
+    padding: -50px 0;
+}
+
+.final p {
+    margin: 0;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+                                        /* FORMULARIO.HTML */
+
+.formulario{
+    width: 100%;
+    background-color: #f5f5f5;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.formulario-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.formulario-login_form{
+    width: 50%;
+}
+
+
+.formulario-login__titulo{
+	margin-bottom: 3rem;
+	font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.form__label {
+	margin-bottom: 1rem;
+}
+
+
+.formulario-login__input-container {
+	position: relative;
+	margin-bottom: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	box-sizing: border-box;
+}
+
+.input {
+	background-color: #fff;
+	border: none;
+	box-sizing: border-box;
+	border-bottom: 1px solid #0b6dee;
+	padding: 1.375rem 0.5rem 0.5rem;
+	height: 3.25rem;
+	width: 100%;
+}
+
+.input::placeholder {
+	visibility: hidden;
+	color: #00000000;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.input-label {
+	position: absolute;
+	top: 1.375rem;
+	left: 0.5rem;
+	transition: all 0.25s;
+}
+
+.input:not(:placeholder-shown) + .input-label,
+.input:focus + .input-label {
+	font-size: 0.875rem;
+	top: 0.25rem;
+	transition: all 0.25s;
+}
+
+.input-container--invalid {
+    margin-bottom: 0.5rem;
+}
+
+.input-container--invalid .input {
+	border: 1px solid red;
+	border-radius: 7px;
+}
+
+.input-container--invalid .input-label {
+	color: red;
+}
+
+.input-message-error {
+	display: none;
+}
+
+.input-container--invalid .input-message-error {
+	color: red;
+	display: block;
+	margin-top: 0.5rem;
+	padding-left: 0.5rem;
+}
+
+.input-label {
+	position: absolute;
+	top: 0.5rem;
+	left: 0.5rem;
+	transition: all 0.25s;
+    
+}
+
+.input-container--invalid .textarea {
+	border: 1px solid red;
+}
+
+.textarea-container--invalid .input-label {
+	color: red;
+}
+
+.textarea-mensagem-error {
+	display: none;
+}
+
+.textarea-container--invalid .textarea-mensagem-error {
+	display: block;
+	color: red;
+	margin-top: 0.5rem;
+	padding-left: 0.5rem;
+}
+
+.boton-formulario-login{
+	border-radius: 70px 70px 70px 70px;
+	padding: 1rem 2rem;
+	color: #ffffff;
+	background-color: #2A7AE4;
+	font-weight: 500px;
+	border: none;
+    font-size: 1rem;
+    width: 100%;
+}
+
+
+
+.boton-formulario-login:hover{
+	box-shadow: 1px 1px 10px 0px  rgba(0, 0, 0, 0.733);
+	cursor: pointer;
+}
+
+.boton-formulario-registro{
+    border-radius: 70px 70px 70px 70px;
+	padding: 1rem 2rem;
+	color: #ffffff;
+	background-color: #2A7AE4;
+	font-weight: 500px;
+	border: none;
+    font-size: 1rem;
+    width: 100%; 
+}
+
+.boton-formulario-registro:hover {
+    box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.733);
+	cursor: pointer;
+}
+
+.btn-3 {
+    background-color: #002cef;
+    margin-top: 50px;
+    display: inline-block;
+    padding: 13px 35px;
+    border-radius: 25px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-3:hover {
+    box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.733);
+    background-color: #EF8700;
+}
+
+                                            /* TODOS LOS PRODUCTOS */
+
+                                                    /* AGREGAR PRODUCTOS */
+
+.agregar {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60vh;
+    background-color: rgb(238, 238, 238);
+}
+
+.agregar__container {
+    width: 70%;
+    padding-top: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.agregar__container label{
+    display: block;
+    width: 50%;
+    padding: 5px;
+    font-size: 12px;
+    color: #A2A2A2;
+    margin: 0 auto;
+    background-color: white;
+    text-align: left;
+}
+
+.agregar__container input {
+    margin-bottom: 20px;
+    width: 50%;
+    padding: 5px;
+    outline: none;
+    border: 1px solid transparent;
+}
+
+.agregar__titulo {
+    margin: 30px 0;
+}
+
+.agregar__text-area {
+    width: 50%;
+    font-size: 12px;
+    color: #A2A2A2;
+    border: 0px solid transparent;
+    outline: none;
+}
+
+@media screen and (max-width: 768px) {
+
+    .cabecera__container {
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .cabecera__buscador {
+        width: 70%;
+        padding: 10px;
+        border-radius: 2rem;
+    }
+
+    .cabecera__lupa {
+        position: absolute;
+        top: 111px;
+        left: 360px;
+        width: 3%;
+        height: 1%;
+    }
+
+    /* BANNER */
+
+    .banner__info {
+        height: 17vh;
+    }
+
+    /* PRODUCTOS */
+
+    .star__wars {
+        height: 28vh;
+    }
+
+    .starWars__ocultar {
+        display: none;
+    }
+
+    .rodapie{
+        height: 50vh;
+    }
+    
+    .footer {
+        height: 50vh;
+    }
+
+    .footer__nombre{
+        width: 89.59%;
+    }
+
+    .footer__logo {
+        width: 25%;
+    }
+
+    .footer__links {
+        width: 25%;
+    }
+
+    .footer__contacto {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width:375px) {
+    
+                                    /* CABECERA */
+    .cabecera {
+        flex-direction: column;
+        width: 100%;
+        height: 30vh;
+        padding: 20px 0;
+        margin-bottom: 20px;
+    }
+
+    .cabecera__container {
+        width: 80%;
+        /* margin: 0 auto; */
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .cabecera__imagen {
+        width: 80%;
+        height: auto;
+        padding-right: 0;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .cabecera__imagen img{
+        margin-left: 15px;
+    }
+    
+    .cabecera__buscador {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 10px;
+        padding: 5px 5px;
+        font-size: 16px;
+        border-radius: 2rem;
+        text-align: center;
+    }
+
+    .cabecera__lupa {
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 5px 10px;
+        border-radius: 100%;
+    }   
+
+                                           /* BANNER */
+    .banner__info {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        height: 35vh;
+        padding: 10px 30px;
+    }
+
+    .banner__titulo {
+        font-size: 2.5rem;
+    }
+
+                                            /* PRODUCTOS */
+
+    .star__wars {
+        width: 100%;
+    }
+
+    .starWars__productos {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .starWars__producto {
+        width: 40%;
+        margin: 10px;
+        margin-bottom: 100px;
+    }
+
+    .starWars__ocultar {
+        display: none;
+    }
+
+    .consola {
+        margin-top: 300px;
+    }
+    
+    .diversos {
+        margin-top: 300px;
+    }
+
+                                                /* RODAPIE */
+
+    .rodapie{
+        margin-top: 250px;
+    }
+
+    .footer {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .footer__container {
+        flex-direction: column;
+    }
+
+    .footer__logo {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+    
+    .footer__links {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .footer__contacto {
+        width: 100%;
+        margin: 0 auto;
+        /* margin-bottom: 50px; */
+    }
+
+    .footer__titulo{
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .footer__textarea {
+        margin-bottom: 30px;
+    }
+
+    .footer__btn-enviar-mensaje {
+        margin: 0 auto;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .final {
+        margin-top: 130px;
+    }
+    .final a, p {
+        color: #2A7AE4;
+        margin-bottom: 10px;
+    }
+}
