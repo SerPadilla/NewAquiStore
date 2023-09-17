@@ -20,17 +20,18 @@ body {
     justify-content: space-between;
     align-items: center;
     width: auto;
-    height: 15vh;
+    height: 10vh;
     padding: 0 40px;
 }
 
 .cabecera__imagen{
+    width: 30%;
     padding-right: 80px;
 }
 
 .cabecera__imagen img {
-    height: 50px;
-    width: 100x;
+    width: 100%;
+    height: 50%;
 }
 
 .cabecera__container {
@@ -41,14 +42,19 @@ body {
 }
 
 .cabecera__buscador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
+    height: inherit;
+    margin-top: 5%;
+    padding: 2% 0 2% 5%;
     text-align: justify;
-    padding-left: 5%;
-    background-color: rgb(238, 2338, 238);
+    background-color: #82b1f0;
     border-radius: 2rem 0 0 2rem;
     border: none;
     font-size: 14px;
-    color: gray;
+    color: white;
     outline: none;
 }
 
@@ -57,9 +63,11 @@ body {
     align-items: center;
     width: 5%;
     height: inherit;
-    padding: 0 5px;
+    margin-top: 5%;
+    padding: 2% 0;
     background-color: rgb(238, 2338, 238);
     border-radius: 0 2rem 2rem 0;
+    background-color: #82b1f0;
 }
 
 .cabecera__btn-login {
