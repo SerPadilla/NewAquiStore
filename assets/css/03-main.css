@@ -47,7 +47,7 @@ body {
     align-items: center;
     width: 100%;
     height: inherit;
-    margin-top: 5%;
+    margin: 4% 0;
     padding: 2% 0 2% 5%;
     text-align: justify;
     background-color: #82b1f0;
@@ -63,7 +63,7 @@ body {
     align-items: center;
     width: 5%;
     height: inherit;
-    margin-top: 5%;
+    margin: 4% 0;
     padding: 2% 0;
     background-color: rgb(238, 2338, 238);
     border-radius: 0 2rem 2rem 0;
