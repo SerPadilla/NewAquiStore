@@ -10,15 +10,114 @@
     <link rel="stylesheet" href="./assets/css/03-main.css">
     <link rel="stylesheet" href="./assets/css/carrito.css">
     <link rel="icon" href="./assets/img/Logo_Aqui_Store-removebg-preview.png">
+
+    <style>
+        .cabecera__lupa {
+    background-color: transparent;
+    border: none;
+    color: black; 
+    margin-left: 1px;
+  }
+  .cabecera {
+      display: flex;
+      align-items: center;
+    }
+
+    .cabecera__buscador {
+      background-color: transparent;
+      border: none;
+      color: black;
+    }
+
+    #resultados {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+   
+.resultado-item {
+  width: 200px;  
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd; 
+  
+}
+.imagen-resultados {
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover; 
+}
+button {
+            border: none;
+            outline: none;
+            padding: 0;
+            margin: 0;
+            background: none;
+            cursor: pointer;
+        }
+      </style>
 </head>
+
 <body>
+    
     <header class="cabecera">
         <div class="cabecera__container">
             <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aquiStore">
-            <input class="cabecera__buscador" type="text" placeholder="¿Que deseas buscar?" title="Escriba el articulo que deseas buscar">
-            <a class="cabecera__lupa" href="#"><img src="./assets/icons/lupa.png" alt="lupa"></a>
+            <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?" title="Escribe el artículo que deseas buscar" id="busquedaInput">
+            <a class="cabecera__lupa" href="#" onclick="realizarBusqueda()"><img src="./assets/icons/lupa.png" alt="lupa"></a>
+
+
+           
         </div>
-        <a class="cabecera__btn-login" href="formulario.html">Iniciar sesión o registrarme</a>
+        
+
+
+        <script>
+            var articulos = [
+              { titulo: 'Artículo 1', contenido: ' combo boar' },
+              { titulo: 'Artículo 2', contenido: 'Contenido del artículo 2...' },
+              
+            ];
+          
+            function realizarBusqueda() {
+              var busqueda = document.getElementById("busquedaInput").value.toLowerCase();
+          
+              var resultados = articulos.filter(function(articulo) {
+                return articulo.titulo.toLowerCase().includes(busqueda) || articulo.contenido.toLowerCase().includes(busqueda);
+              });
+          
+              mostrarResultados(resultados);
+            }
+          
+            function mostrarResultados(resultados) {
+              var resultadosDiv = document.getElementById("resultados");
+              resultadosDiv.innerHTML = ""; 
+          
+              if (resultados.length === 0) {
+                resultadosDiv.innerHTML = "No se encontraron resultados.";
+              } else {
+                resultados.forEach(function(articulo) {
+                  var articuloDiv = document.createElement("div");
+                  articuloDiv.innerHTML = "<h3>" + articulo.titulo + "</h3><p>" + articulo.contenido + "</p>";
+                  resultadosDiv.appendChild(articuloDiv);
+                });
+              }
+            }
+          </script>
+
+
+        
+        <header>
+
+            <h1>Aqui Store</h1>
+            <div id="usuario-section">
+                <button id="btnRegistro" onclick="location.href='formulario.html'">Inicio o Registrarse</button>
+            <button id="btnCerrarSesion" style="display: none; border: none; outline: none;" onclick="cerrarSesion()">Cerrar Sesión</button>
+            <span id="nombreUsuario"></span>
+            
+        </div>
+        </header>
+       
 
         <div>
             <ul>
@@ -38,13 +137,88 @@
                             <tbody></tbody>
                         </table>
                         <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
+                        <a href="#" id="enviar" class="btn-2">Enviar</a>
+                        <div id="informacion-carrito"></div>
+                        
                     </div>
                 </li>
             </ul>
         </div>
-
+        <script>
+            var enviarButton = document.getElementById("enviar");
+            enviarButton.addEventListener("click", function() {
+                // Recolectar los productos seleccionados
+                var productosSeleccionados = obtenerProductosSeleccionados();
+                
+                // Almacenar los productos seleccionados en localStorage
+                localStorage.setItem('productosSeleccionados', JSON.stringify(productosSeleccionados));
+                
+                // Redirigir a la página de envío
+                window.location.href = "envio.html";
+            });
+        
+            // Función para obtener los productos seleccionados
+            function obtenerProductosSeleccionados() {
+                var productos = [];
+                var listaCarrito = document.getElementById("lista-carrito").querySelectorAll("tbody tr");
+                
+                listaCarrito.forEach(function(item) {
+                    var producto = {
+                        imagen: item.querySelector("td:nth-child(1)").textContent,
+                        nombre: item.querySelector("td:nth-child(2)").textContent,
+                        precio: item.querySelector("td:nth-child(3)").textContent
+                    };
+                    productos.push(producto);
+                });
+                
+                return productos;
+            }
+        </script>
+        
     </header>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            verificarSesion();
+        });
     
+        function verificarSesion() {
+            var usuarioAutenticado = obtenerUsuarioAutenticado();
+    
+            if (usuarioAutenticado) {
+                mostrarUsuarioAutenticado(usuarioAutenticado);
+            }
+        }
+    
+        function obtenerUsuarioAutenticado() {
+            var usuarioJSON = localStorage.getItem("usuarioAutenticado");
+            return usuarioJSON ? JSON.parse(usuarioJSON) : null;
+        }
+    
+        function mostrarUsuarioAutenticado(usuario) {
+            var usuarioSection = document.getElementById("usuario-section");
+            var btnRegistro = document.getElementById("btnRegistro");
+            var nombreUsuario = document.getElementById("nombreUsuario");
+            var btnCerrarSesion = document.getElementById("btnCerrarSesion");
+    
+            btnRegistro.style.display = "none";
+            nombreUsuario.textContent = "Hola " + usuario.nombre;
+            btnCerrarSesion.style.display = "inline";
+    
+            
+            usuarioSection.appendChild(nombreUsuario);
+            usuarioSection.appendChild(document.createTextNode(" ")); 
+            usuarioSection.appendChild(btnCerrarSesion);
+        }
+    
+        function cerrarSesion() {
+            localStorage.removeItem("usuarioAutenticado");
+            location.reload();
+        }
+    </script> 
+    
+   
+
     <section class="banner">
         <div class="banner__info">
             <h1 class="banner__titulo">Septiembre Promocional</h1>
@@ -65,23 +239,95 @@
 
         <main class="products container" id="lista-1">
             <h2>Productos</h2> <br><br>
+            <div id="resultados"></div>
 
             <div class="product-content">
 
-                <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Combo Gaming GS X1.png" alt="image1-1">
-                    <div class="product-txt">
-                        <h3>Combo Gaming GS X1</h3>
-                        <p class="precio">$2'860,000</p>
-                        <del class="precio antes">Antes $3'699,000</del>
-                        <a href="#" class="agregar-carrito btn-1" data-id="1">Agregar</a>
-                    </div>
-                </div>
+
+                <script>
+                    var articulos = [
+                      { titulo: 'Artículo 1', contenido: 'Contenido del artículo 1...' },
+                      {
+                        titulo: 'Combo Gaming GS X1',
+                        contenido: 'Descripción del Combo Gaming GS X1...',
+                        precio: '$2,860,000',
+                        precioAntes: 'Antes $3,699,000',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/Combo Gaming GS X1.png'
+                      },
+                      { titulo: 'Artículo 2', contenido: 'Contenido del artículo 2...' },
+                      {
+                        titulo: 'Combo PC Pro Gamer MOBA',
+                        contenido: 'Combo PC Pro Gamer MOBA + Combo Periféricos...',
+                        precio: '$2.499,000',
+                        precioAntes: 'Antes $3.499,000',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/Combo PC Pro Gamer MOBA +Combo Periféricos.png'
+                      },
+                      { titulo: 'Artículo 3', contenido: 'Contenido del artículo 3...' },
+                      {
+                        titulo: 'PC Gamer prueba 4444444',
+                        contenido: 'PC Gamer Ultra-GeForce RTX 4070 12GB',
+                        precio: '$5.999,000',
+                        precioAntes: 'Antes $7.999,000',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/PC Gamer Ultra-GeForce RTX 4070 12GB.png'
+                      },
+                      { titulo: 'Artículo 4', contenido: 'Contenido del artículo 4...' },
+                      {
+                        titulo: 'Mouse Gamer T-DAGGER Captain RGB',
+                        contenido: 'Mouse Gamer T-DAGGER Captain RGB',
+                        precio: '$129,900',
+                        precioAntes: 'Antes $179,900',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/Mouse Gamer T-DAGGER Captain RGB.png'
+                      }
+
+
+                    ];
+                    
+                   
+
+
+
+                    function mostrarResultados(resultados) {
+  var resultadosDiv = document.getElementById("resultados");
+  resultadosDiv.innerHTML = ""; 
+
+  if (resultados.length === 0) {
+    resultadosDiv.innerHTML = "No se encontraron resultados.";
+  } else {
+    resultados.forEach(function(articulo) {
+      var articuloDiv = document.createElement("div");
+      articuloDiv.innerHTML = `
+        <div class="resultado-item">
+          <h3>${articulo.titulo}</h3>
+          <img src="${articulo.imagen}" alt="${articulo.titulo}" class="imagen-resultados">
+          <p>${articulo.contenido}</p>
+          <p class="precio">${articulo.precio}</p>
+          <del class="precio antes">${articulo.precioAntes}</del>
+          <a href="${articulo.enlaceAgregarCarrito}" class="agregar-carrito btn-1" data-id="1">Agregar</a>
+        </div>
+      `;
+      resultadosDiv.appendChild(articuloDiv);
+    });
+  }
+}
+
+
+
+                    </script>
+                       
+
+ 
+
+
+
 
                 <div class="starWars__producto">
                     <img src="./assets/img/Productos/Combo PC Pro Gamer MOBA +Combo Periféricos.png" alt="image2">
                     <div class="product-txt">
-                        <h3>Combo PC Pro Gamer MOBA +Combo Periféricos</h3>
+                        <h3>Combo PC Pro Gamer MOBA + Combo Periféricos</h3>
                         <p class="precio">$2'499,000</p>
                         <del class="precio antes">Antes $3'499,000</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="2">Agregar</a>
@@ -139,7 +385,7 @@
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Monitor Gamer IPS Iceberg Destiny 22″ 1ms 75Hz HDMI FullHD X221.png" alt="image8">
+                    <img src="./assets/img/Productos/monitor.png" alt="image8">
                     <div class="product-txt">
                         <h3>Monitor Gamer IPS Iceberg Destiny 22″ X221</h3>
                         <p class="precio">$499,000</p>
@@ -159,7 +405,7 @@
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Teclado Mecánico Gamer T-DAGGER Adriatic RGB Multimedia.png" alt="image10">
+                    <img src="./assets/img/Productos/Teclado.png" alt="image10">
                     <div class="product-txt">
                         <h3>Teclado Mecánico Gamer T-DAGGER Adriatic RGB</h3>
                         <p class="precio">$246,900</p>
@@ -190,7 +436,7 @@
 
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Diadema Gamer MSI Immerse GH30 Speaker 40mm con Micrófono.png" alt="image13">
+                    <img src="./assets/img/Productos/Diadema.png" alt="image13">
                     <div class="product-txt">
                         <h3>Diadema Gamer MSI Immerse GH30 con Micrófono</h3>
                         <p class="precio">$169,900</p>
@@ -286,9 +532,9 @@
                 </div>
                 <div class="footer__contacto">
                     <form action="#">
-                        <h2 class="footer__titulo">Hable con nosostros</h2>
+                        <h2 class="footer__titulo">Chatea con nosostros</h2>
                         <label class="footer__nombre" for="nombre">Nombre</label>
-                        <input class="footer__input" id="nombre" type="text" required placeholder="Equipo Aquí Store ">
+                        <input class="footer__input" id="nombre" type="text" required placeholder="Equipo Aquí Store">
                         <textarea class="footer__textarea" name="text-area" id="" cols="20" rows="5" placeholder="Escribe tu mensaje"></textarea>
                         <button class="footer__btn-enviar-mensaje">Enviar mensaje</button>
                     </form>
@@ -297,9 +543,6 @@
             </div>
         </div>
         <div class="final">
-            <div class="starWars__ver-todo">
-                <a class="agregar-producto" href="agregar-producto.html">Agregar nuevos productos</a>
-            </div>
             <a href="#"><img class="logo-team" src="./assets/img/logo-removebg-team-preview.png" alt="logo-team" width="150px" height="150px"></a>
             <a href="#"><p>Creado por ADSO - TEAM 07</p></a>
             <a href="#"><img class="logo-sena" src="./assets/img/logo_sena-removebg-preview.png" alt="logo-sena" width="150px" height="150px"></a>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envío</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 10vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #informacion-carrito, #seccion-pago, #seccion-direccion, #btn-enviar {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        #mensaje-direccion {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        th {
+            background-color: #dbebdc;
+            color: white;
+        }
+
+        #productos-seleccionados img {
+            max-width: 40px;
+            max-height: 40px;
+        }
+        #btn-enviar, #btn-regresar {
+    background-color: #4caf50;
+    color: #000000;
+    padding: 10px 168px; /* Ajusta el padding para controlar el tamaño */
+    cursor: pointer;
+    border: none;
+    margin-right: 10px; /* Ajusta el margen entre los botones según tus necesidades */
+    font-size: 16px; /* Ajusta el tamaño del texto si es necesario */
+    box-sizing: border-box; /* Esto asegura que el padding y el borde se incluyan en el ancho total */
+}
+
+#btn-enviar:hover, #btn-regresar:hover {
+    background-color: #c9e4cb;
+}
+    </style>
+</head>
+<p></p>
+<body>
+    <h1>Información de Envío</h1>
+    <div id="informacion-carrito"></div>
+
+ 
+    <div id="seccion-pago">
+        <h2>Confirmar Método de Pago</h2>
+        <label>
+            <input type="radio" name="metodoPago" value="tarjeta" id="tarjeta" onclick="mostrarOcultarCampos('tarjeta')"> Tarjeta de Crédito
+        </label>
+        <label>
+            <input type="radio" name="metodoPago" value="transferencia" id="transferencia" onclick="mostrarOcultarCampos('transferencia')"> Transferencia Bancaria
+        </label>
+        <div id="datos-tarjeta" style="display: none;">
+            <h3>Ingrese los datos de la tarjeta:</h3>
+            <label>Número de Tarjeta: <input type="text" id="numeroTarjeta"></label><br>
+            <label>Código de Seguridad: <input type="text" id="codigoSeguridad"></label><br>
+            <label>Número de Cuotas: <input type="text" id="numCuotas"></label>
+        </div>
+    
+        <div id="seleccion-banco" style="display: none;">
+            <h3>Seleccione el banco de su preferencia:</h3>
+            <select id="lista-bancos">
+                <option value="banco1">Seleccione su Banco</option>
+                <option value="banco2">Bancolombia</option>
+                <option value="banco7">Davivienda</option>
+                <option value="banco3">Banco De Bogota</option>
+                <option value="banco4">Banco ITAU</option>
+                <option value="banco5">Nequi</option>
+                <option value="banco6">Daviplata</option>
+            </select><br>
+            <label>Valor a Pagar: <input type="text" id="valorPagar"></label>
+        </div>
+    </div>
+    
+    
+    <div id="seccion-direccion">
+        <h2>Confirmar Dirección de Envío</h2>
+        <label>Dirección: <input type="text" id="direccion"></label><br>
+        <button onclick="guardarDireccion()">Guardar Dirección</button>
+        <p id="mensaje-direccion"></p>
+    </div>
+        <button id="btn-enviar" onclick="enviarConfirmacion()">Enviar</button>
+        <button id="btn-regresar" onclick="regresarAIndex()">Regresar</button>
+    <script>
+       
+    function enviarConfirmacion() {
+       
+        alert('¡Gracias por tu compra! Se ha enviado una notificación de confirmación.');
+        window.location.href = "index.html";
+    }
+
+   
+    function regresarAIndex() {
+        window.location.href = "index.html";
+    }
+
+    </script>
+
+    <script>
+    
+        var productosSeleccionados = JSON.parse(localStorage.getItem('productosSeleccionados'));
+
+        if (productosSeleccionados && productosSeleccionados.length > 0) {
+           
+            var informacionCarrito = document.getElementById("informacion-carrito");
+
+            // Crear una tabla para mostrar los productos
+            var tabla = document.createElement("table");
+            tabla.border = "1";
+            tabla.innerHTML = "<thead><tr><th>Imagen</th><th>Nombre</th><th>Precio</th></tr></thead><tbody id='productos-seleccionados'></tbody>";
+
+            // Agregar filas con la información de cada producto
+            var tbody = tabla.querySelector("tbody");
+            productosSeleccionados.forEach(function (producto) {
+                var fila = document.createElement("tr");
+                fila.innerHTML = "<td><img src='" + producto.imagen + "' alt='" + producto.nombre + "'></td><td>" + producto.nombre + "</td><td>" + producto.precio + "</td>";
+                tbody.appendChild(fila);
+            });
+
+            // Agregar la tabla al elemento div
+            informacionCarrito.appendChild(tabla);
+        } else {
+            // Mostrar un mensaje si no hay productos seleccionados
+            document.write("<p>No hay productos seleccionados.</p>");
+        }
+
+        // Evento para mostrar/ocultar datos de tarjeta y selección de banco según el método de pago seleccionado
+        var metodoPagoRadios = document.querySelectorAll('input[name="metodoPago"]');
+        metodoPagoRadios.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                if (this.value === 'tarjeta') {
+                    document.getElementById('datos-tarjeta').style.display = 'block';
+                    document.getElementById('seleccion-banco').style.display = 'none';
+                } else if (this.value === 'transferencia') {
+                    document.getElementById('datos-tarjeta').style.display = 'none';
+                    document.getElementById('seleccion-banco').style.display = 'block';
+                }
+            });
+        });
+
+        // Función para enviar notificación de confirmación y redirigir al index.html
+        function enviarConfirmacion() {
+            // Aquí puedes implementar la lógica para enviar una notificación (puede ser una alerta)
+            alert('¡Gracias por tu compra! Se ha enviado una notificación de confirmación.');
+
+            // Redirigir al index.html
+            window.location.href = "index.html";
+        }
+
+        function mostrarOcultarCampos(opcion) {
+            var datosTarjeta = document.getElementById('datos-tarjeta');
+            var seleccionBanco = document.getElementById('seleccion-banco');
+    
+            if (opcion === 'tarjeta') {
+                datosTarjeta.style.display = 'block';
+                seleccionBanco.style.display = 'none';
+            } else if (opcion === 'transferencia') {
+                datosTarjeta.style.display = 'none';
+                seleccionBanco.style.display = 'block';
+            }
+        }
+    </script>
+
+    <p></p>
+</body>
+</html>
+
+
+
+
+

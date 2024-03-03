@@ -144,7 +144,6 @@ body {
     margin-bottom: 40px;
     display: grid;
     gap: 20px;
-    
 }
 
 .starWars__container {
@@ -232,7 +231,7 @@ body {
 
 .rodapie {
     height: 50vh;
-    padding: 150px 0;
+    padding:  0;
 }
 
 .footer {
@@ -291,7 +290,7 @@ body {
 
 .footer__nombre{
     display: block;
-    width: 93.39%;
+    width: 100;
     padding: 10px;
     text-align: justify;
     background-color: white;
@@ -301,7 +300,7 @@ body {
 
 .footer__input{
     display: block;
-    width: 96.4%;
+    width: 100%;
     padding: 5px 5px;
     border: none;
     margin-bottom: 10px;
@@ -310,7 +309,7 @@ body {
 }
 
 .footer__textarea {
-    width: 96.4%;
+    width: 100%;
     margin-bottom: 20px;
     padding: 20px 0 0 10px;
     border: none;
@@ -324,6 +323,7 @@ body {
     color: #FFF;
     border: 1px solid #2A7AE4;
     transition: .5s all ease-in-out;
+    border-radius: 1rem;
 }
 
 .footer__btn-enviar-mensaje:hover {
@@ -506,8 +506,6 @@ body {
     width: 100%;
 }
 
-
-
 .boton-formulario-login:hover{
 	box-shadow: 1px 1px 10px 0px  rgba(0, 0, 0, 0.733);
 	cursor: pointer;
@@ -522,6 +520,7 @@ body {
 	border: none;
     font-size: 1rem;
     width: 100%; 
+    text-align: center;
 }
 
 .boton-formulario-registro:hover {
@@ -819,6 +818,7 @@ body {
         margin: 0 auto;
         margin-top: 30px;
         text-align: center;
+        border-radius: 1rem;
     }
 
     .final {
