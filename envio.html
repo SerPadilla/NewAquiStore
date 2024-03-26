@@ -64,6 +64,8 @@
     background-color: #c9e4cb;
 }
     </style>
+
+
 </head>
 <p></p>
 <body>
@@ -74,6 +76,7 @@
     <div id="seccion-pago">
         <h2>Confirmar Método de Pago</h2>
         <label>
+
             <input type="radio" name="metodoPago" value="tarjeta" id="tarjeta" onclick="mostrarOcultarCampos('tarjeta')"> Tarjeta de Crédito
         </label>
         <label>
@@ -107,9 +110,11 @@
         <label>Dirección: <input type="text" id="direccion"></label><br>
         <button onclick="guardarDireccion()">Guardar Dirección</button>
         <p id="mensaje-direccion"></p>
+
     </div>
         <button id="btn-enviar" onclick="enviarConfirmacion()">Enviar</button>
         <button id="btn-regresar" onclick="regresarAIndex()">Regresar</button>
+
     <script>
        
     function enviarConfirmacion() {
@@ -117,16 +122,12 @@
         alert('¡Gracias por tu compra! Se ha enviado una notificación de confirmación.');
         window.location.href = "index.html";
     }
-
-   
+  
     function regresarAIndex() {
         window.location.href = "index.html";
     }
 
-    </script>
-
-    <script>
-    
+   
         var productosSeleccionados = JSON.parse(localStorage.getItem('productosSeleccionados'));
 
         if (productosSeleccionados && productosSeleccionados.length > 0) {

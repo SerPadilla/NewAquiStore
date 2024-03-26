@@ -22,9 +22,17 @@
     </header>
 
     <body>
-    <h1>Registro</h1>
+    
     <p> </p>
+    <div class="formulario-login container">
     <form onsubmit="registrarUsuario(event)">
+    
+        <div class="formulario" id="formulario" name="formulario" >
+                  <h3 class="formulario-login__titulo">Formulario de registro</h3>
+                <form id="form1" class="formulario-login_form" method="post" action="guardar.php">
+    
+  
+
         <div class="formulario-login__input-container">
             <input name="user" id="user" class="input inputs" type="text">
             <label class="input-label" for="usuario">Nombre De Usuario</label>
@@ -41,8 +49,8 @@
             <span class="input-message-error">Este campo no es valido</span>
         </div>
         <div class="formulario-login__input-container">
-            <input name="ced" id="ced" class="input inputs" type="text">
-            <label class="input-label" for="usuario">Cedula</label>
+            <input name="ced" id="ced" class="input inputs" type="number" placeholder="" required data-tipo="ced" data-form-usuario>
+            <label class="input-label" for="ced">Cédula</label>
             <span class="input-message-error">Este campo no es valido</span>
         </div>
         <div class="formulario-login__input-container">
@@ -61,8 +69,8 @@
             <span class="input-message-error">Este campo no es valido</span>
         </div>
         <div class="formulario-login__input-container">
-            <input name="email" id="email" class="input inputs" type="text">
-            <label class="input-label" for="usuario">Email</label>
+            <input name="email" id="email" class="input inputs" type="email" placeholder="" required data-tipo="email" data-form-usuario>
+            <label class="input-label" for="email">Email</label>
             <span class="input-message-error">Este campo no es valido</span>
         </div>
         <div class="formulario-login__input-container">

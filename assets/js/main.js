@@ -67,4 +67,18 @@ function vaciarCarrito() {
     }
     return false;
 }
+function registrarUsuario(event) {
+    event.preventDefault();
+  
+    var nombre = document.getElementById("user").value;
+  
+    var usuarioAutenticado = {
+        nombre: nombre,
+    };
+  
+    localStorage.setItem("usuarioAutenticado", JSON.stringify(usuarioAutenticado));
+  
+    // Redirige a index.html
+    window.location.href = "index.html";
+  }
 

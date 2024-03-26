@@ -26,7 +26,7 @@
     .cabecera__buscador {
       background-color: transparent;
       border: none;
-      color: black;
+      color: rgb(0, 0, 0);
     }
 
     #resultados {
@@ -65,9 +65,7 @@ button {
             <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aquiStore">
             <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?" title="Escribe el artículo que deseas buscar" id="busquedaInput">
             <a class="cabecera__lupa" href="#" onclick="realizarBusqueda()"><img src="./assets/icons/lupa.png" alt="lupa"></a>
-
-
-           
+          
         </div>
         
 
@@ -113,9 +111,9 @@ button {
             <div id="usuario-section">
                 <button id="btnRegistro" onclick="location.href='formulario.html'">Inicio o Registrarse</button>
             <button id="btnCerrarSesion" style="display: none; border: none; outline: none;" onclick="cerrarSesion()">Cerrar Sesión</button>
-            <span id="nombreUsuario"></span>
-            
+            <span id="nombreUsuario"></span>          
         </div>
+
         </header>
        
 
@@ -144,20 +142,21 @@ button {
                 </li>
             </ul>
         </div>
+
         <script>
             var enviarButton = document.getElementById("enviar");
             enviarButton.addEventListener("click", function() {
-                // Recolectar los productos seleccionados
+               
                 var productosSeleccionados = obtenerProductosSeleccionados();
                 
-                // Almacenar los productos seleccionados en localStorage
+               
                 localStorage.setItem('productosSeleccionados', JSON.stringify(productosSeleccionados));
                 
-                // Redirigir a la página de envío
+                
                 window.location.href = "envio.html";
             });
         
-            // Función para obtener los productos seleccionados
+            
             function obtenerProductosSeleccionados() {
                 var productos = [];
                 var listaCarrito = document.getElementById("lista-carrito").querySelectorAll("tbody tr");
@@ -286,11 +285,12 @@ button {
 
                     ];
                     
+                    
                    
 
 
 
-                    function mostrarResultados(resultados) {
+function mostrarResultados(resultados) {
   var resultadosDiv = document.getElementById("resultados");
   resultadosDiv.innerHTML = ""; 
 
@@ -318,12 +318,6 @@ button {
 
                     </script>
                        
-
- 
-
-
-
-
                 <div class="starWars__producto">
                     <img src="./assets/img/Productos/Combo PC Pro Gamer MOBA +Combo Periféricos.png" alt="image2">
                     <div class="product-txt">
