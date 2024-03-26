@@ -62,7 +62,7 @@
     }
 }
 
-@media screen and (max-width:375px) {
+@media screen and (max-width:415px) {
     
                                     /* CABECERA */
     .cabecera {
@@ -137,7 +137,7 @@
     }
 
     .starWars__producto {
-        width: 40%;
+        width: 100%;
         margin: 10px;
         margin-bottom: 100px;
     }
