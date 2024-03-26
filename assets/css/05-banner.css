@@ -1,0 +1,46 @@
+.banner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+    width: auto;
+    height: 50vh;
+    padding: 30px;
+    background-image: url(../img/559573.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.banner__info {
+    display: block;
+    justify-content: end;
+    align-items: end;
+    width: 100%;
+    height: 24vh;
+    padding: 10px 30px;
+}
+
+.banner__titulo {
+    margin-bottom: 20px;
+    font-size: 2.8rem;
+    color: white;
+}
+
+.banner__descripcion {
+    color: white;
+    margin-bottom: 15PX;
+}
+
+.banner__btn-consolas {
+    padding: 10px 50px;
+    background-color: #2A7AE4;
+    color: #FFF;
+    border: 1px solid #2A7AE4;
+    transition: .5s all ease-in-out;
+    border-radius: 1rem;
+}
+
+.banner__btn-consolas:hover {
+    background-color: #FFF;
+    color: #2A7AE4;
+}
