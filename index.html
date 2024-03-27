@@ -15,45 +15,6 @@
     <link rel="stylesheet" href="./assets/css/08-mediaQueris.css">
     <link rel="stylesheet" href="./assets/css/carrito.css">
     <link rel="icon" href="./assets/img/Logo_Aqui_Store-removebg-preview.png">
-
-    <style>
-        .cabecera__lupa {
-    background-color: transparent;
-    border: none;
-    color: black; 
-    margin-left: 1px;
-  }
-  .cabecera {
-      display: flex;
-      align-items: center;
-    }
-
-    .cabecera__buscador {
-      background-color: transparent;
-      border: none;
-      color: rgb(0, 0, 0);
-    }
-
-    #resultados {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-    }
-   
-.resultado-item {
-  width: 200px;  
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ddd; 
-  
-}
-.imagen-resultados {
-    width: 100px; 
-    height: 100px; 
-    object-fit: cover; 
-}
-
-      </style>
 </head>
 
 <body>
@@ -62,8 +23,7 @@
         <div class="cabecera__container">
             <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aquiStore">
             <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?" title="Escribe el artículo que deseas buscar" id="busquedaInput">
-            <a class="cabecera__lupa" href="#" onclick="realizarBusqueda()"><img src="./assets/icons/lupa.png" alt="lupa"></a>
-          
+            <a class="cabecera__lupa" href="#" onclick="realizarBusqueda()"><img src="./assets/icons/lupa.png" alt="lupa"></a>          
         </div>
         
 
@@ -105,9 +65,9 @@
             <h1>Aqui Store</h1>
             <div id="usuario-section">
                 <button id="btnRegistro" onclick="location.href='formulario.html'">Inicio o Registrarse</button>
-            <button id="btnCerrarSesion" style="display: none; border: none; outline: none;" onclick="cerrarSesion()">Cerrar Sesión</button>
-            <span id="nombreUsuario"></span>          
-        </div>
+                <button id="btnCerrarSesion" style="display: none; border: none; outline: none;" onclick="cerrarSesion()">Cerrar Sesión</button>
+                <span id="nombreUsuario"></span>          
+            </div>
 
         </header>       
 
