@@ -270,3 +270,41 @@ button {
     border: 0px solid transparent;
     outline: none;
 }
+
+/* respuesta de la busqueda de los productos  */
+
+.cabecera__lupa {
+    background-color: transparent;
+    border: none;
+    color: black; 
+    margin-left: 1px;
+  }
+  .cabecera {
+      display: flex;
+      align-items: center;
+    }
+
+    .cabecera__buscador {
+      background-color: transparent;
+      border: none;
+      color: rgb(0, 0, 0);
+    }
+
+    #resultados {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+   
+.resultado-item {
+  width: 100%;  
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd; 
+  
+}
+.imagen-resultados {
+    width: 100px; 
+    /* height: 100px;  */
+    object-fit: cover; 
+}
