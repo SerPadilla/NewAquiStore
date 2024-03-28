@@ -9,8 +9,13 @@ function mostrarOcultarCampos(metodoPago) {
     calcularTotal();
 }
 
+
 productosSeleccionados.forEach(function (producto) {
-    var fila = document.createElement("tr");
-    fila.innerHTML = "<td><img src='" + producto.imagen + "' alt='" + producto.nombre + "'></td><td>" + producto.nombre + "</td><td>" + producto.precio + "</td>";
-    tbody.appendChild(fila);
-  });
+    console.log("Precio del producto:", producto.precio);
+    total += parseFloat(producto.precio);
+});
+
+console.log("Total después de sumar:", total);
+
+// Botón flotante Sergio //
+

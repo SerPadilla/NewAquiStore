@@ -74,34 +74,66 @@
         window.location.href = "index.html";
     }
 
-   var productosSeleccionados = JSON.parse(localStorage.getItem('productosSeleccionados'));
+    var productosSeleccionados = JSON.parse(localStorage.getItem('productosSeleccionados'));
 
-        // Verificar si hay productos seleccionados en el carrito
-        if (productosSeleccionados && productosSeleccionados.length > 0) {
-            // Crear una tabla para mostrar los productos
-            var tabla = document.createElement("table");
-            tabla.border = "1";
-            tabla.innerHTML = "<thead><tr><th>Imagen</th><th>Nombre</th><th>Precio</th></tr></thead><tbody id='productos-seleccionados'></tbody>";
 
-            // Agregar filas con la información de cada producto
-            var tbody = tabla.querySelector("tbody");
-            productosSeleccionados.forEach(function (producto) {
-                var fila = document.createElement("tr");
-                fila.innerHTML = "<td><img src='" + producto.imagen + "' alt='" + producto.nombre + "'></td><td>" + producto.nombre + "</td><td>" + producto.precio + "</td>";
-                tbody.appendChild(fila);
-            });
-
-            // Agregar la tabla al elemento div
-            document.getElementById("informacion-carrito").appendChild(tabla);
-        } else {
-            // Mostrar un mensaje si no hay productos seleccionados
-            var mensajeCarritoVacio = document.createElement("p");
-            mensajeCarritoVacio.textContent = "No hay productos seleccionados en el carrito.";
-            document.getElementById("informacion-carrito").appendChild(mensajeCarritoVacio);
-        }
+if (productosSeleccionados && productosSeleccionados.length > 0) {
     
+    var tabla = document.createElement("table");
+    tabla.border = "1";
+    tabla.innerHTML = "<thead><tr><th>Imagen</th><th>Nombre</th><th>Precio</th></tr></thead><tbody id='productos-seleccionados'></tbody>";
+  
+    var total = 0;
 
-       
+    var tbody = tabla.querySelector("tbody");
+    productosSeleccionados.forEach(function (producto) {
+        var fila = document.createElement("tr");
+        fila.innerHTML = "<td><img src='" + producto.imagen + "' alt='" + producto.nombre + "'></td><td>" + producto.nombre + "</td><td>" + producto.precio + "</td>";
+        tbody.appendChild(fila);
+
+      
+        if (!isNaN(parseFloat(producto.precio))) {
+            total += parseFloat(producto.precio);
+        }
+    });
+
+   
+    var filaTotal = document.createElement("tr");
+    filaTotal.innerHTML = "<td colspan='2'><strong>Total:</strong></td><td>" + total.toFixed(2) + "</td>";
+    tbody.appendChild(filaTotal);
+
+  
+    document.getElementById("informacion-carrito").appendChild(tabla);
+} else {
+  
+    var mensajeCarritoVacio = document.createElement("p");
+    mensajeCarritoVacio.textContent = "No hay productos seleccionados en el carrito.";
+    document.getElementById("informacion-carrito").appendChild(mensajeCarritoVacio);
+}
+
+
+
+
+function formatTotal(total) {
+   
+    var totalEntero = total * 100;
+    
+    var totalRedondeado = Math.round(totalEntero);
+    
+    var totalFinal = totalRedondeado / 100;
+    
+    return totalFinal.toFixed(2);
+}
+
+
+var totalFormateado = formatTotal(total);
+
+
+
+// Mostrar el total en la tabla
+filaTotal.innerHTML = "<td colspan='2'><strong>Total:</strong></td><td>" + totalFormateado + "</td>";
+
+      
         var metodoPagoRadios = document.querySelectorAll('input[name="metodoPago"]');
         metodoPagoRadios.forEach(function(radio) {
             radio.addEventListener('change', function() {
@@ -136,9 +168,11 @@
                 seleccionBanco.style.display = 'block';
             }
         }
+        
     </script>
 
-    <p></p>
+
+
 </body>
 </html>
 
