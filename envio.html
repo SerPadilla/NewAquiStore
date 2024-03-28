@@ -9,14 +9,13 @@
     <link rel="stylesheet" href="agregar-producto.html">
        
 </head>
-    
-   
-
-</head>
-<p></p>
 
 <body>
+    <div style="margin-bottom: 150px ;"></div>
+
     <h1>Información de Envío</h1>
+    <p></p>
+
     <div id="informacion-carrito"></div>
 
  
@@ -74,59 +73,58 @@
         window.location.href = "index.html";
     }
 
-    var productosSeleccionados = JSON.parse(localStorage.getItem('productosSeleccionados'));
-
+   // Suma de valores del precio// 
+   
+ 
+   var productosSeleccionados = JSON.parse(localStorage.getItem('productosSeleccionados'));
 
 if (productosSeleccionados && productosSeleccionados.length > 0) {
-    
     var tabla = document.createElement("table");
     tabla.border = "1";
     tabla.innerHTML = "<thead><tr><th>Imagen</th><th>Nombre</th><th>Precio</th></tr></thead><tbody id='productos-seleccionados'></tbody>";
   
     var total = 0;
-
     var tbody = tabla.querySelector("tbody");
+    
     productosSeleccionados.forEach(function (producto) {
         var fila = document.createElement("tr");
         fila.innerHTML = "<td><img src='" + producto.imagen + "' alt='" + producto.nombre + "'></td><td>" + producto.nombre + "</td><td>" + producto.precio + "</td>";
         tbody.appendChild(fila);
-
       
-        if (!isNaN(parseFloat(producto.precio))) {
-            total += parseFloat(producto.precio);
+        // Normalizar el precio eliminando caracteres no numéricos y convertirlo a número
+        var precioNumerico = parseFloat(producto.precio.replace(/[^\d.-]/g, ''));
+        if (!isNaN(precioNumerico)) {
+            total += precioNumerico;
         }
     });
 
-   
     var filaTotal = document.createElement("tr");
-    filaTotal.innerHTML = "<td colspan='2'><strong>Total:</strong></td><td>" + total.toFixed(2) + "</td>";
+    filaTotal.innerHTML = "<td colspan='2'><strong>Total:</strong></td><td>" + formatearPrecio(total.toFixed(2)) + "</td>";
     tbody.appendChild(filaTotal);
 
-  
     document.getElementById("informacion-carrito").appendChild(tabla);
 } else {
-  
     var mensajeCarritoVacio = document.createElement("p");
     mensajeCarritoVacio.textContent = "No hay productos seleccionados en el carrito.";
     document.getElementById("informacion-carrito").appendChild(mensajeCarritoVacio);
 }
 
-
-
-
-function formatTotal(total) {
-   
-    var totalEntero = total * 100;
-    
-    var totalRedondeado = Math.round(totalEntero);
-    
-    var totalFinal = totalRedondeado / 100;
-    
-    return totalFinal.toFixed(2);
+// Función para formatear el precio
+function formatearPrecio(precio) {
+    return parseFloat(precio).toLocaleString('es-CO', { minimumFractionDigits: 2 });
 }
 
 
-var totalFormateado = formatTotal(total);
+
+
+
+
+
+
+
+
+
+
 
 
 

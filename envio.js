@@ -10,12 +10,6 @@ function mostrarOcultarCampos(metodoPago) {
 }
 
 
-productosSeleccionados.forEach(function (producto) {
-    console.log("Precio del producto:", producto.precio);
-    total += parseFloat(producto.precio);
-});
 
-console.log("Total después de sumar:", total);
 
-// Botón flotante Sergio //
 
