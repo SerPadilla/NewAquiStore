@@ -81,4 +81,5 @@ function registrarUsuario(event) {
     // Redirige a index.html
     window.location.href = "index.html";
   }
+  
 

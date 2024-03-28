@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Envío</title>
-    <link rel="stylesheet" href="./assets/css/06-productos.css">
     <link rel="stylesheet" href="./assets/css/envio.css">
+    <link rel="stylesheet" href="envio.js">
+    <link rel="stylesheet" href="agregar-producto.html">
+       
+</head>
     
    
 
@@ -20,7 +23,6 @@
     <div id="seccion-pago">
         <h2>Confirmar Método de Pago</h2>
         <label>
-
             <input type="radio" name="metodoPago" value="tarjeta" id="tarjeta" onclick="mostrarOcultarCampos('tarjeta')"> Tarjeta de Crédito
         </label>
         <label>
@@ -47,7 +49,8 @@
             <label>Valor a Pagar: <input type="text" id="valorPagar"></label>
         </div>
     </div>
-    
+
+   
     
     <div id="seccion-direccion">
         <h2>Confirmar Dirección de Envío</h2>
@@ -71,19 +74,16 @@
         window.location.href = "index.html";
     }
 
-   
-        var productosSeleccionados = JSON.parse(localStorage.getItem('productosSeleccionados'));
+   var productosSeleccionados = JSON.parse(localStorage.getItem('productosSeleccionados'));
 
+        // Verificar si hay productos seleccionados en el carrito
         if (productosSeleccionados && productosSeleccionados.length > 0) {
-           
-            var informacionCarrito = document.getElementById("informacion-carrito");
-
-            
+            // Crear una tabla para mostrar los productos
             var tabla = document.createElement("table");
             tabla.border = "1";
-            tabla.innerHTML = "<thead><tr><th>Articulo</th><th>Descripción </th><th>Precio</th></tr></thead><tbody id='productos-seleccionados'></tbody>";
+            tabla.innerHTML = "<thead><tr><th>Imagen</th><th>Nombre</th><th>Precio</th></tr></thead><tbody id='productos-seleccionados'></tbody>";
 
-            
+            // Agregar filas con la información de cada producto
             var tbody = tabla.querySelector("tbody");
             productosSeleccionados.forEach(function (producto) {
                 var fila = document.createElement("tr");
@@ -91,12 +91,15 @@
                 tbody.appendChild(fila);
             });
 
-           
-            informacionCarrito.appendChild(tabla);
+            // Agregar la tabla al elemento div
+            document.getElementById("informacion-carrito").appendChild(tabla);
         } else {
-            
-            document.write("<p>No hay productos seleccionados.</p>");
+            // Mostrar un mensaje si no hay productos seleccionados
+            var mensajeCarritoVacio = document.createElement("p");
+            mensajeCarritoVacio.textContent = "No hay productos seleccionados en el carrito.";
+            document.getElementById("informacion-carrito").appendChild(mensajeCarritoVacio);
         }
+    
 
        
         var metodoPagoRadios = document.querySelectorAll('input[name="metodoPago"]');

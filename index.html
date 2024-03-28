@@ -91,39 +91,35 @@
                         <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
                         <a href="#" id="enviar" class="btn-2">Enviar</a>
                         <div id="informacion-carrito"></div>
-                        
                     </div>
                 </li>
             </ul>
         </div>
-
+        
         <script>
             var enviarButton = document.getElementById("enviar");
-            enviarButton.addEventListener("click", function() {
-               
+            enviarButton.addEventListener("click", function () {
                 var productosSeleccionados = obtenerProductosSeleccionados();
-                
-               
                 localStorage.setItem('productosSeleccionados', JSON.stringify(productosSeleccionados));
-                
-                
                 window.location.href = "envio.html";
             });
         
-            
             function obtenerProductosSeleccionados() {
                 var productos = [];
                 var listaCarrito = document.getElementById("lista-carrito").querySelectorAll("tbody tr");
-                
-                listaCarrito.forEach(function(item) {
+        
+                listaCarrito.forEach(function (item) {
+                    var imagen = item.querySelector("td:nth-child(1) img").src;
+                    var nombre = item.querySelector("td:nth-child(2)").textContent;
+                    var precio = item.querySelector("td:nth-child(3)").textContent;
                     var producto = {
-                        imagen: item.querySelector("td:nth-child(1)").textContent,
-                        nombre: item.querySelector("td:nth-child(2)").textContent,
-                        precio: item.querySelector("td:nth-child(3)").textContent
+                        imagen: imagen,
+                        nombre: nombre,
+                        precio: precio
                     };
                     productos.push(producto);
                 });
-                
+        
                 return productos;
             }
         </script>
