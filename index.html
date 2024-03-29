@@ -98,6 +98,7 @@
                         <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
                         <a href="#" id="enviar" class="btn-2">Enviar</a>
                         <div id="informacion-carrito"></div>
+                        
                     </div>
                 </li>
             </ul>
@@ -105,28 +106,33 @@
 
         <script>
             var enviarButton = document.getElementById("enviar");
-            enviarButton.addEventListener("click", function () {
+            enviarButton.addEventListener("click", function() {
+               
                 var productosSeleccionados = obtenerProductosSeleccionados();
+                
+               
                 localStorage.setItem('productosSeleccionados', JSON.stringify(productosSeleccionados));
+                
+                
                 window.location.href = "envio.html";
             });
-
+        
             function obtenerProductosSeleccionados() {
                 var productos = [];
                 var listaCarrito = document.getElementById("lista-carrito").querySelectorAll("tbody tr");
-
+        
                 listaCarrito.forEach(function (item) {
                     var imagen = item.querySelector("td:nth-child(1) img").src;
                     var nombre = item.querySelector("td:nth-child(2)").textContent;
                     var precio = item.querySelector("td:nth-child(3)").textContent;
                     var producto = {
-                        imagen: imagen,
-                        nombre: nombre,
-                        precio: precio
+                        imagen: item.querySelector("td:nth-child(1)").textContent,
+                        nombre: item.querySelector("td:nth-child(2)").textContent,
+                        precio: item.querySelector("td:nth-child(3)").textContent
                     };
                     productos.push(producto);
                 });
-
+        
                 return productos;
             }
         </script>
@@ -200,42 +206,42 @@
 
                 <script>
                     var articulos = [
-                        { titulo: 'Artículo 1', contenido: 'Contenido del artículo 1...' },
-                        {
-                            titulo: 'Combo Gaming GS X1',
-                            contenido: 'Descripción del Combo Gaming GS X1...',
-                            precio: '$2,860.000',
-                            precioAntes: 'Antes $3,699,000',
-                            enlaceAgregarCarrito: '#',
-                            imagen: './assets/img/Productos/Combo Gaming GS X1.png'
-                        },
-                        { titulo: 'Artículo 2', contenido: 'Contenido del artículo 2...' },
-                        {
-                            titulo: 'Combo PC Pro Gamer MOBA',
-                            contenido: 'Combo PC Pro Gamer MOBA + Combo Periféricos...',
-                            precio: '$2,499.000',
-                            precioAntes: 'Antes $3.499,000',
-                            enlaceAgregarCarrito: '#',
-                            imagen: './assets/img/Productos/Combo PC Pro Gamer MOBA +Combo Periféricos.png'
-                        },
-                        { titulo: 'Artículo 3', contenido: 'Contenido del artículo 3...' },
-                        {
-                            titulo: 'PC Gamer prueba 4444444',
-                            contenido: 'PC Gamer Ultra-GeForce RTX 4070 12GB',
-                            precio: '$5,999.000',
-                            precioAntes: 'Antes $7.999,000',
-                            enlaceAgregarCarrito: '#',
-                            imagen: './assets/img/Productos/PC Gamer Ultra-GeForce RTX 4070 12GB.png'
-                        },
-                        { titulo: 'Artículo 4', contenido: 'Contenido del artículo 4...' },
-                        {
-                            titulo: 'Mouse Gamer T-DAGGER Captain RGB',
-                            contenido: 'Mouse Gamer T-DAGGER Captain RGB',
-                            precio: '$129,900',
-                            precioAntes: 'Antes $179,900',
-                            enlaceAgregarCarrito: '#',
-                            imagen: './assets/img/Productos/Mouse Gamer T-DAGGER Captain RGB.png'
-                        }
+                      { titulo: 'Artículo 1', contenido: 'Contenido del artículo 1...' },
+                      {
+                        titulo: 'Combo Gaming GS X1',
+                        contenido: 'Descripción del Combo Gaming GS X1...',
+                        precio: '$2,860.000',
+                        precioAntes: 'Antes $3,699,000',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/Combo Gaming GS X1.png'
+                      },
+                      { titulo: 'Artículo 2', contenido: 'Contenido del artículo 2...' },
+                      {
+                        titulo: 'Combo PC Pro Gamer MOBA',
+                        contenido: 'Combo PC Pro Gamer MOBA + Combo Periféricos...',
+                        precio: '$2,499.000',
+                        precioAntes: 'Antes $3.499,000',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/Combo PC Pro Gamer MOBA +Combo Periféricos.png'
+                      },
+                      { titulo: 'Artículo 3', contenido: 'Contenido del artículo 3...' },
+                      {
+                        titulo: 'PC Gamer prueba 4444444',
+                        contenido: 'PC Gamer Ultra-GeForce RTX 4070 12GB',
+                        precio: '$5,999.000',
+                        precioAntes: 'Antes $7.999,000',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/PC Gamer Ultra-GeForce RTX 4070 12GB.png'
+                      },
+                      { titulo: 'Artículo 4', contenido: 'Contenido del artículo 4...' },
+                      {
+                        titulo: 'Mouse Gamer T-DAGGER Captain RGB',
+                        contenido: 'Mouse Gamer T-DAGGER Captain RGB',
+                        precio: '$129,900',
+                        precioAntes: 'Antes $179,900',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/Mouse Gamer T-DAGGER Captain RGB.png'
+                      }
 
                     ];
 
