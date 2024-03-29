@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,69 +19,70 @@
 </head>
 
 <body>
-    
+
     <header class="cabecera">
         <div class="cabecera__container">
-
             <div class="logo">
-                <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aquiStore">
+                <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png"
+                    alt="logo-aquiStore">
             </div>
 
             <div class="buscador">
-                <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?" title="Escribe el artículo que deseas buscar" id="busquedaInput">
-                <a class="cabecera__lupa" href="#" onclick="realizarBusqueda()"><img src="./assets/icons/lupa.png" alt="lupa"></a>          
+                <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?"
+                    title="Escribe el artículo que deseas buscar" id="busquedaInput">
+                <a class="cabecera__lupa" href="#" onclick="realizarBusqueda()"><img src="./assets/icons/lupa.png"
+                        alt="lupa"></a>
             </div>
-            
         </div>
-        
+
         <script>
             var articulos = [
-              { titulo: 'Artículo 1', contenido: ' combo boar' },
-              { titulo: 'Artículo 2', contenido: 'Contenido del artículo 2...' },
-              
+                { titulo: 'Artículo 1', contenido: ' combo boar' },
+                { titulo: 'Artículo 2', contenido: 'Contenido del artículo 2...' },
             ];
-          
+
             function realizarBusqueda() {
-              var busqueda = document.getElementById("busquedaInput").value.toLowerCase();
-          
-              var resultados = articulos.filter(function(articulo) {
-                return articulo.titulo.toLowerCase().includes(busqueda) || articulo.contenido.toLowerCase().includes(busqueda);
-              });
-          
-              mostrarResultados(resultados);
-            }
-          
-            function mostrarResultados(resultados) {
-              var resultadosDiv = document.getElementById("resultados");
-              resultadosDiv.innerHTML = ""; 
-          
-              if (resultados.length === 0) {
-                resultadosDiv.innerHTML = "No se encontraron resultados.";
-              } else {
-                resultados.forEach(function(articulo) {
-                  var articuloDiv = document.createElement("div");
-                  articuloDiv.innerHTML = "<h3>" + articulo.titulo + "</h3><p>" + articulo.contenido + "</p>";
-                  resultadosDiv.appendChild(articuloDiv);
+                var busqueda = document.getElementById("busquedaInput").value.toLowerCase();
+
+                var resultados = articulos.filter(function (articulo) {
+                    return articulo.titulo.toLowerCase().includes(busqueda) || articulo.contenido.toLowerCase().includes(busqueda);
                 });
-              }
+
+                mostrarResultados(resultados);
             }
-          </script>
-        
+
+            function mostrarResultados(resultados) {
+                var resultadosDiv = document.getElementById("resultados");
+                resultadosDiv.innerHTML = "";
+
+                if (resultados.length === 0) {
+                    resultadosDiv.innerHTML = "No se encontraron resultados.";
+                } else {
+                    resultados.forEach(function (articulo) {
+                        var articuloDiv = document.createElement("div");
+                        articuloDiv.innerHTML = "<h3>" + articulo.titulo + "</h3><p>" + articulo.contenido + "</p>";
+                        resultadosDiv.appendChild(articuloDiv);
+                    });
+                }
+            }
+        </script>
+
         <header>
             <h1>Aqui Store</h1>
             <div id="usuario-section">
                 <button id="btnRegistro" onclick="location.href='formulario.html'">Inicio o Registrarse</button>
-            <button id="btnCerrarSesion" style="display: none; border: none; outline: none;" onclick="cerrarSesion()">Cerrar Sesión</button>
-            <span id="nombreUsuario"></span>          
-        </div>
+                <button id="btnCerrarSesion" style="display: none; border: none; outline: none;"
+                    onclick="cerrarSesion()">Cerrar Sesión</button>
+                <span id="nombreUsuario"></span>
+            </div>
 
-        </header>       
+        </header>
 
         <div>
             <ul>
                 <li class="submenu">
-                    <img src="./assets/icons/buy-svgrepo-com.svg" id="img-carrito"
-                        alt="carrito" width="40px" height="40px">
+                    <img src="./assets/icons/buy-svgrepo-com.svg" id="img-carrito" alt="carrito" width="40px"
+                        height="40px">
                     <div id="carrito">
                         <table id="lista-carrito">
                             <thead>
@@ -100,7 +102,7 @@
                 </li>
             </ul>
         </div>
-        
+
         <script>
             var enviarButton = document.getElementById("enviar");
             enviarButton.addEventListener("click", function () {
@@ -108,11 +110,11 @@
                 localStorage.setItem('productosSeleccionados', JSON.stringify(productosSeleccionados));
                 window.location.href = "envio.html";
             });
-        
+
             function obtenerProductosSeleccionados() {
                 var productos = [];
                 var listaCarrito = document.getElementById("lista-carrito").querySelectorAll("tbody tr");
-        
+
                 listaCarrito.forEach(function (item) {
                     var imagen = item.querySelector("td:nth-child(1) img").src;
                     var nombre = item.querySelector("td:nth-child(2)").textContent;
@@ -124,53 +126,53 @@
                     };
                     productos.push(producto);
                 });
-        
+
                 return productos;
             }
         </script>
-        
+
     </header>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             verificarSesion();
         });
-    
+
         function verificarSesion() {
             var usuarioAutenticado = obtenerUsuarioAutenticado();
-    
+
             if (usuarioAutenticado) {
                 mostrarUsuarioAutenticado(usuarioAutenticado);
             }
         }
-    
+
         function obtenerUsuarioAutenticado() {
             var usuarioJSON = localStorage.getItem("usuarioAutenticado");
             return usuarioJSON ? JSON.parse(usuarioJSON) : null;
         }
-    
+
         function mostrarUsuarioAutenticado(usuario) {
             var usuarioSection = document.getElementById("usuario-section");
             var btnRegistro = document.getElementById("btnRegistro");
             var nombreUsuario = document.getElementById("nombreUsuario");
             var btnCerrarSesion = document.getElementById("btnCerrarSesion");
-    
+
             btnRegistro.style.display = "none";
             nombreUsuario.textContent = "Hola " + usuario.nombre;
             btnCerrarSesion.style.display = "inline";
-    
-            
+
+
             usuarioSection.appendChild(nombreUsuario);
-            usuarioSection.appendChild(document.createTextNode(" ")); 
+            usuarioSection.appendChild(document.createTextNode(" "));
             usuarioSection.appendChild(btnCerrarSesion);
         }
-    
+
         function cerrarSesion() {
             localStorage.removeItem("usuarioAutenticado");
             location.reload();
         }
-    </script>    
-   
+    </script>
+
 
     <section class="banner">
         <div class="banner__info">
@@ -196,76 +198,71 @@
 
             <div class="product-content">
 
-
                 <script>
                     var articulos = [
-                      { titulo: 'Artículo 1', contenido: 'Contenido del artículo 1...' },
-                      {
-                        titulo: 'Combo Gaming GS X1',
-                        contenido: 'Descripción del Combo Gaming GS X1...',
-                        precio: '$2,860.000',
-                        precioAntes: 'Antes $3,699,000',
-                        enlaceAgregarCarrito: '#',
-                        imagen: './assets/img/Productos/Combo Gaming GS X1.png'
-                      },
-                      { titulo: 'Artículo 2', contenido: 'Contenido del artículo 2...' },
-                      {
-                        titulo: 'Combo PC Pro Gamer MOBA',
-                        contenido: 'Combo PC Pro Gamer MOBA + Combo Periféricos...',
-                        precio: '$2,499.000',
-                        precioAntes: 'Antes $3.499,000',
-                        enlaceAgregarCarrito: '#',
-                        imagen: './assets/img/Productos/Combo PC Pro Gamer MOBA +Combo Periféricos.png'
-                      },
-                      { titulo: 'Artículo 3', contenido: 'Contenido del artículo 3...' },
-                      {
-                        titulo: 'PC Gamer prueba 4444444',
-                        contenido: 'PC Gamer Ultra-GeForce RTX 4070 12GB',
-                        precio: '$5,999.000',
-                        precioAntes: 'Antes $7.999,000',
-                        enlaceAgregarCarrito: '#',
-                        imagen: './assets/img/Productos/PC Gamer Ultra-GeForce RTX 4070 12GB.png'
-                      },
-                      { titulo: 'Artículo 4', contenido: 'Contenido del artículo 4...' },
-                      {
-                        titulo: 'Mouse Gamer T-DAGGER Captain RGB',
-                        contenido: 'Mouse Gamer T-DAGGER Captain RGB',
-                        precio: '$129,900',
-                        precioAntes: 'Antes $179,900',
-                        enlaceAgregarCarrito: '#',
-                        imagen: './assets/img/Productos/Mouse Gamer T-DAGGER Captain RGB.png'
-                      }
+                        { titulo: 'Artículo 1', contenido: 'Contenido del artículo 1...' },
+                        {
+                            titulo: 'Combo Gaming GS X1',
+                            contenido: 'Descripción del Combo Gaming GS X1...',
+                            precio: '$2,860.000',
+                            precioAntes: 'Antes $3,699,000',
+                            enlaceAgregarCarrito: '#',
+                            imagen: './assets/img/Productos/Combo Gaming GS X1.png'
+                        },
+                        { titulo: 'Artículo 2', contenido: 'Contenido del artículo 2...' },
+                        {
+                            titulo: 'Combo PC Pro Gamer MOBA',
+                            contenido: 'Combo PC Pro Gamer MOBA + Combo Periféricos...',
+                            precio: '$2,499.000',
+                            precioAntes: 'Antes $3.499,000',
+                            enlaceAgregarCarrito: '#',
+                            imagen: './assets/img/Productos/Combo PC Pro Gamer MOBA +Combo Periféricos.png'
+                        },
+                        { titulo: 'Artículo 3', contenido: 'Contenido del artículo 3...' },
+                        {
+                            titulo: 'PC Gamer prueba 4444444',
+                            contenido: 'PC Gamer Ultra-GeForce RTX 4070 12GB',
+                            precio: '$5,999.000',
+                            precioAntes: 'Antes $7.999,000',
+                            enlaceAgregarCarrito: '#',
+                            imagen: './assets/img/Productos/PC Gamer Ultra-GeForce RTX 4070 12GB.png'
+                        },
+                        { titulo: 'Artículo 4', contenido: 'Contenido del artículo 4...' },
+                        {
+                            titulo: 'Mouse Gamer T-DAGGER Captain RGB',
+                            contenido: 'Mouse Gamer T-DAGGER Captain RGB',
+                            precio: '$129,900',
+                            precioAntes: 'Antes $179,900',
+                            enlaceAgregarCarrito: '#',
+                            imagen: './assets/img/Productos/Mouse Gamer T-DAGGER Captain RGB.png'
+                        }
 
-                    ]; 
+                    ];
 
-function mostrarResultados(resultados) {
-  var resultadosDiv = document.getElementById("resultados");
-  resultadosDiv.innerHTML = ""; 
+                    function mostrarResultados(resultados) {
+                        var resultadosDiv = document.getElementById("resultados");
+                        resultadosDiv.innerHTML = "";
 
-  if (resultados.length === 0) {
-    resultadosDiv.innerHTML = "No se encontraron resultados.";
-  } else {
-    resultados.forEach(function(articulo) {
-      var articuloDiv = document.createElement("div");
-      articuloDiv.innerHTML = `
+                        if (resultados.length === 0) {
+                            resultadosDiv.innerHTML = "No se encontraron resultados.";
+                        } else {
+                            resultados.forEach(function (articulo) {
+                                var articuloDiv = document.createElement("div");
+                                articuloDiv.innerHTML = `
         <div class="resultado-item">
-          <h3>${articulo.titulo}</h3>
-          <img src="${articulo.imagen}" alt="${articulo.titulo}" class="imagen-resultados">
-          <p>${articulo.contenido}</p>
-          <p class="precio">${articulo.precio}</p>
-          <del class="precio antes">${articulo.precioAntes}</del>
-          <a href="${articulo.enlaceAgregarCarrito}" class="agregar-carrito btn-1" data-id="1">Agregar</a>
-        </div>
-      `;
-      resultadosDiv.appendChild(articuloDiv);
-    });
-  }
-}
+            <h3>${articulo.titulo}</h3>
+            <img src="${articulo.imagen}" alt="${articulo.titulo}" class="imagen-resultados">
+            <p>${articulo.contenido}</p>
+            <p class="precio">${articulo.precio}</p>
+            <del class="precio antes">${articulo.precioAntes}</del>
+            <a href="${articulo.enlaceAgregarCarrito}" class="agregar-carrito btn-1" data-id="1">Agregar</a>
+        </div>`;
+                                resultadosDiv.appendChild(articuloDiv);
+                            });
+                        }
+                    }
+                </script>
 
-
-
-                    </script>
-                       
                 <div class="starWars__producto">
                     <img src="./assets/img/Productos/Combo PC Pro Gamer MOBA +Combo Periféricos.png" alt="image2">
                     <div class="product-txt">
@@ -300,14 +297,15 @@ function mostrarResultados(resultados) {
                     <img src="./assets/img/Productos/PC Gamer NVIDIA BATTLEBOX ESSENTIAL.png" alt="image5">
                     <div class="product-txt">
                         <h3>PC Gamer NVIDIA BATTLEBOX ESSENTIAL</h3>
-                        <p class="precio">$3'399,000</p> 
+                        <p class="precio">$3'399,000</p>
                         <del class="precio antes">Antes $5'999,000</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="5">Agregar</a>
                     </div>
                 </div>
 
                 <div class="starWars__producto starWars__ocultar">
-                    <img src="./assets/img/Productos/Chasis Caja Iceberg Mech One-Ventiladores ARGB + Doble Tira LED M-RGB + 2 Vidrios con Protector Metálico.png" alt="image6">
+                    <img src="./assets/img/Productos/Chasis Caja Iceberg Mech One-Ventiladores ARGB + Doble Tira LED M-RGB + 2 Vidrios con Protector Metálico.png"
+                        alt="image6">
                     <div class="product-txt">
                         <h3>Chasis Caja Iceberg Mech One ARGB + Doble Tira LED RGB </h3>
                         <p class="precio">$1'079,000</p>
@@ -317,7 +315,8 @@ function mostrarResultados(resultados) {
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Chasis Caja Iceberg Glacius Vidrio Templado + Ventilador Led 120mm.png" alt="image7">
+                    <img src="./assets/img/Productos/Chasis Caja Iceberg Glacius Vidrio Templado + Ventilador Led 120mm.png"
+                        alt="image7">
                     <div class="product-txt">
                         <h3>Chasis Caja Iceberg Glacius + Ventilador Led</h3>
                         <p class="precio">$209,900</p>
@@ -337,7 +336,8 @@ function mostrarResultados(resultados) {
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img//Productos/Combo 4 en 1 T-DAGGER LEGION con Teclado + Mouse + Diadema + Mousepad Gaming.png" alt="image9">
+                    <img src="./assets/img//Productos/Combo 4 en 1 T-DAGGER LEGION con Teclado + Mouse + Diadema + Mousepad Gaming.png"
+                        alt="image9">
                     <div class="product-txt">
                         <h3>Combo 4 en 1 T-DAGGER LEGION</h3>
                         <p class="precio">$209,900</p>
@@ -388,7 +388,8 @@ function mostrarResultados(resultados) {
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Micrófono para PC T-DAGGER Oriole + Tripode + Filtro.png" alt="image14">
+                    <img src="./assets/img/Productos/Micrófono para PC T-DAGGER Oriole + Tripode + Filtro.png"
+                        alt="image14">
                     <div class="product-txt">
                         <h3>Micrófono para PC T-DAGGER Oriole + Tripode + Filtro</h3>
                         <p class="precio">$119,900</p>
@@ -398,7 +399,8 @@ function mostrarResultados(resultados) {
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Silla Gamer Iceberg GC80 - Material Premium - Reposabrazos Acolchado - Colores.png" alt="image15">
+                    <img src="./assets/img/Productos/Silla Gamer Iceberg GC80 - Material Premium - Reposabrazos Acolchado - Colores.png"
+                        alt="image15">
                     <div class="product-txt">
                         <h3>Silla Gamer Iceberg GC80 / Material Premium</h3>
                         <p class="precio">$889,000</p>
@@ -408,7 +410,8 @@ function mostrarResultados(resultados) {
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Silla Gamer Iceberg GC95-Iluminación ARGB borde Grueso-Cuero PU.png" alt="image16">
+                    <img src="./assets/img/Productos/Silla Gamer Iceberg GC95-Iluminación ARGB borde Grueso-Cuero PU.png"
+                        alt="image16">
                     <div class="product-txt">
                         <h3>Silla Gamer Iceberg GC95-Iluminación ARGB borde Grueso</h3>
                         <p class="precio">$1'299,000</p>
@@ -417,7 +420,8 @@ function mostrarResultados(resultados) {
                     </div>
                 </div>
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/ZOTAC GAMING GeForce RTX 4090 Trinity OC 24GB GDDR6X.png" alt="image17">
+                    <img src="./assets/img/Productos/ZOTAC GAMING GeForce RTX 4090 Trinity OC 24GB GDDR6X.png"
+                        alt="image17">
                     <div class="product-txt">
                         <h3>Tarjeta gráfica ZOTAC GAMING GeForce RTX 4090</h3>
                         <p class="precio">$8'899,000</p>
@@ -437,7 +441,8 @@ function mostrarResultados(resultados) {
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Capturadora de Video Elgato HD60-S para Grabar PlayStation 4 y Xbox One.png" alt="image19">
+                    <img src="./assets/img/Productos/Capturadora de Video Elgato HD60-S para Grabar PlayStation 4 y Xbox One.png"
+                        alt="image19">
                     <div class="product-txt">
                         <h3>Capturadora de Video Elgato HD60-S para PlayStation 4 y Xbox One</h3>
                         <p class="precio">$699,900</p>
@@ -447,7 +452,8 @@ function mostrarResultados(resultados) {
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Refrigeración Líquida PCCOOLER GI-CX360 ARGB Radiador Triple 360mm.png" alt="image20">
+                    <img src="./assets/img/Productos/Refrigeración Líquida PCCOOLER GI-CX360 ARGB Radiador Triple 360mm.png"
+                        alt="image20">
                     <div class="product-txt">
                         <h3>Refrigeración Líquida PCCOOLER GI-CX360 ARGB Radiador 360mm</h3>
                         <p class="precio">$599,000</p>
@@ -456,62 +462,49 @@ function mostrarResultados(resultados) {
                     </div>
                 </div>
 
-                <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Apevia Premier 1000W 80 Plus GOLD ATX.png" alt="image21">
-                    <div class="product-txt">
-                        <h3>Apevia Premier 1000W 80 Plus GOLD ATX</h3>
-                        <p class="precio">$549,900</p>
-                        <del class="precio antes">Antes $760,000</del>
-                        <a href="#" class="agregar-carrito btn-1" data-id="21">Agregar</a>
-                    </div>
-                </div>
-
-                <div class="starWars__producto">
-                    <img src="./assets/img/Productos/ARTIC Liquid Freezer II 240A A-RGB-2 x 120mm.png" alt="image22">
-                    <div class="product-txt">
-                        <h3>ARTIC Liquid Freezer II 240A A-RGB-2 x 120mm</h3>
-                        <p class="precio">$566,900</p>
-                        <del class="precio antes">Antes $729,900</del>
-                        <a href="#" class="agregar-carrito btn-1" data-id="22">Agregar</a>
-                    </div>
-                </div>
-
             </div>
-            
         </main>
 
-    <section class="rodapie">
-        <div class="footer">
-            <div class="footer__container">
-                <div class="footer__logo"><img src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo" width="250px" height="250px"></div>
-                <div class="footer__links">
-                    <a class="footer__link" href="#">Quienes Somos</a>
-                    <a class="footer__link" href="#">Politicas de seguridad</a>
-                    <a class="footer__link" href="#">Programa de fidelidad</a>
-                    <a class="footer__link" href="#">Nuestras tiendas</a>
-                    <a class="footer__link" href="#">Quiero ser franquiciado</a>
-                    <a class="footer__link" href="#">Anuncie aqui!</a>
-                </div>
-                <div class="footer__contacto">
-                    <form action="#">
-                        <h2 class="footer__titulo">Chatea con nosostros</h2>
-                        <label class="footer__nombre" for="nombre">Nombre</label>
-                        <input class="footer__input" id="nombre" type="text" required placeholder="Equipo Aquí Store">
-                        <textarea class="footer__textarea" name="text-area" id="" cols="20" rows="5" placeholder="Escribe tu mensaje"></textarea>
-                        <button class="footer__btn-enviar-mensaje">Enviar mensaje</button>
-                    </form>
-                </div>
-                
-            </div>
-        </div>
-        <div class="final">
-            <a href="#"><img class="logo-team" src="./assets/img/logo-removebg-team-preview.png" alt="logo-team" width="150px" height="150px"></a>
-            <a href="#"><p>Creado por ADSO - TEAM 07</p></a>
-            <a href="#"><img class="logo-sena" src="./assets/img/logo_sena-removebg-preview.png" alt="logo-sena" width="150px" height="150px"></a>
-        </div>
-        
-    </section>
+        <section class="rodapie">
+            <div class="footer">
+                <div class="footer__container">
+                    <div class="footer__logo"><img src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo"
+                            width="250px" height="250px"></div>
+                    <div class="footer__links">
+                        <a class="footer__link" href="#">Quienes Somos</a>
+                        <a class="footer__link" href="#">Politicas de seguridad</a>
+                        <a class="footer__link" href="#">Programa de fidelidad</a>
+                        <a class="footer__link" href="#">Nuestras tiendas</a>
+                        <a class="footer__link" href="#">Quiero ser franquiciado</a>
+                        <a class="footer__link" href="#">Anuncie aqui!</a>
+                    </div>
+                    <div class="footer__contacto">
+                        <form action="#">
+                            <h2 class="footer__titulo">Chatea con nosostros</h2>
+                            <label class="footer__nombre" for="nombre">Nombre</label>
+                            <input class="footer__input" id="nombre" type="text" required
+                                placeholder="Equipo Aquí Store">
+                            <textarea class="footer__textarea" name="text-area" id="" cols="20" rows="5"
+                                placeholder="Escribe tu mensaje"></textarea>
+                            <button class="footer__btn-enviar-mensaje">Enviar mensaje</button>
+                        </form>
+                    </div>
 
-    <script src="./assets/js/main.js"></script>
+                </div>
+            </div>
+            <div class="final">
+                <a href="#"><img class="logo-team" src="./assets/img/logo-removebg-team-preview.png" alt="logo-team"
+                        width="150px" height="150px"></a>
+                <a href="#">
+                    <p>Creado por ADSO - TEAM 07</p>
+                </a>
+                <a href="#"><img class="logo-sena" src="./assets/img/logo_sena-removebg-preview.png" alt="logo-sena"
+                        width="150px" height="150px"></a>
+            </div>
+
+        </section>
+
+        <script src="./assets/js/main.js"></script>
 </body>
+
 </html>
