@@ -12,7 +12,9 @@ body {
 
         h1 {
             color: #333;
+            margin-top: 100px;
         }
+        
 
         #informacion-carrito, #seccion-pago, #seccion-direccion, #btn-enviar {
             background-color: #fff;
@@ -58,43 +60,10 @@ body {
     background-color: #c9e4cb;
 }
 
-/* Sergio boton flotante resumen de la compra*/
-
-.floating-cart {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 999;
-  }
+body {
+  margin-bottom: 200px; 
   
-  .floating-cart button {
-    background-color: #ff5722;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  .cart-summary {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    padding: 10px;
-    bottom: 50px;
-    right: 0;
-  }
-  
-  .cart-summary p, .cart-summary button {
-    margin: 5px 0;
-  }
-  
-  #continue-shopping {
-    background-color: #4caf50;
-  }
-  
-  #continue-shopping:hover {
-    background-color: #388e3c;
-  }
+}
+body {
+  overflow-y: auto;
+}
