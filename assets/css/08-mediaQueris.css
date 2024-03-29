@@ -1,22 +1,59 @@
 @media screen and (max-width: 768px) {
 
-    .cabecera__container {
+    .cabecera{
+        display: flex;
         flex-direction: column;
-        justify-content: center;
+        width: 100%;
+        height: 50vh;
+        border: 2px solid blue;
+    }
+
+    .cabecera__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items:center ;
+        width: 100%;
+        height: 50vh;
         margin: 0 auto;
         text-align: center;
+        border: 1px solid red;
+    }
+    
+    .logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        /* height: auto; */
+        border: 1px solid violet;        
+    }
+    
+    .logo img{
+        /* background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center; */
+        width: 100%;
+        /* height: 20%; */
+    }
+    
+    .buscador{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        border: 1px solid green;
+
     }
 
     .cabecera__buscador {
         width: 70%;
-        padding: 10px;
-        border-radius: 2rem;
+        padding: 14px;
     }
 
     .cabecera__lupa {
         width: 20%;
-        padding: 10px 5px;
-        /* height: 1%; */
+        padding: 10px;
     }
 
     /* BANNER */
@@ -40,7 +77,7 @@
     }
     
     .footer {
-        height: 50vh;
+        height: 40vh;
     }
 
     .footer__nombre{
@@ -48,15 +85,16 @@
     }
 
     .footer__logo {
-        width: 25%;
+        display: none;
+        width: 40%;
     }
 
     .footer__links {
-        width: 25%;
+        width: 40%;
     }
 
     .footer__contacto {
-        width: 25%;
+        width: 40%;
     }
 }
 
@@ -146,7 +184,6 @@
         width: 80%;
         height: 10vh;
         margin: 0 auto;
-        border: 2px solid red;
     }
 
     .starWars__productos {
@@ -232,7 +269,6 @@
         margin: 0 auto;
         margin-bottom: 10px;
         border-radius: .5rem;
-        border: 2px solid black;
     }
     
     .footer__textarea {
@@ -241,7 +277,6 @@
         margin-bottom: 30px;
         text-align: center;
         border-radius: .5rem;
-        border: 2px solid black;
     }
 
     .footer__btn-enviar-mensaje {

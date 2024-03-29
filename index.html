@@ -21,13 +21,18 @@
     
     <header class="cabecera">
         <div class="cabecera__container">
-            <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aquiStore">
-            <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?" title="Escribe el artículo que deseas buscar" id="busquedaInput">
-            <a class="cabecera__lupa" href="#" onclick="realizarBusqueda()"><img src="./assets/icons/lupa.png" alt="lupa"></a>          
+
+            <div class="logo">
+                <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aquiStore">
+            </div>
+
+            <div class="buscador">
+                <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?" title="Escribe el artículo que deseas buscar" id="busquedaInput">
+                <a class="cabecera__lupa" href="#" onclick="realizarBusqueda()"><img src="./assets/icons/lupa.png" alt="lupa"></a>          
+            </div>
+            
         </div>
         
-
-
         <script>
             var articulos = [
               { titulo: 'Artículo 1', contenido: ' combo boar' },
@@ -65,9 +70,9 @@
             <h1>Aqui Store</h1>
             <div id="usuario-section">
                 <button id="btnRegistro" onclick="location.href='formulario.html'">Inicio o Registrarse</button>
-                <button id="btnCerrarSesion" style="display: none; border: none; outline: none;" onclick="cerrarSesion()">Cerrar Sesión</button>
-                <span id="nombreUsuario"></span>          
-            </div>
+            <button id="btnCerrarSesion" style="display: none; border: none; outline: none;" onclick="cerrarSesion()">Cerrar Sesión</button>
+            <span id="nombreUsuario"></span>          
+        </div>
 
         </header>       
 
@@ -164,8 +169,7 @@
             localStorage.removeItem("usuarioAutenticado");
             location.reload();
         }
-    </script> 
-    
+    </script>    
    
 
     <section class="banner">
