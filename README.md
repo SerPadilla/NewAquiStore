@@ -12,3 +12,4 @@ Tambien se añadieron los mismos productos con disponibilidad en productos.html
 Se realizaron los siguientes cambios.
 1. border-radius a los botones de iniciar sesion y del banner
 2. se cambio el titulo de la seccion de los productos
+3. Link de la pagina publicada https://serpadilla.github.io/NewAquiStore/ 
