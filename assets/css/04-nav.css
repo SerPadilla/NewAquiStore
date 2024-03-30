@@ -12,7 +12,9 @@
     flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
-    height: auto;
+    height: 25vh;
+    padding: 15px 0;
+    margin-top: 15px;
 }
 
 .nav-1{
@@ -24,7 +26,7 @@
 }
 
 .cabecera__imagen{
-    width: 30%;
+    width: 25%;
     height: auto;
 }
 
@@ -41,6 +43,10 @@
     justify-content: center;
     align-items: center;
     width: 30%;
+}
+
+.enlaceLogo{
+    display: flex;
 }
 
 .tituloPrincipal:hover{
@@ -64,8 +70,8 @@
     align-items: center;
     width: 60%;
     height: 40%;
-    margin: 4% 0;
-    padding: 2% 0 2% 5%;
+    margin: 5px 0px 5px 0;
+    padding: 15px 5px;
     text-align: justify;
     background-color: #82b1f0;
     border-radius: 2rem 0 0 2rem;
@@ -80,8 +86,8 @@
     align-items: center;
     width: 5%;
     height: 40%;
-    margin: 4% 0;
-    padding: 2% 0;
+    margin: 5px 0px 5px 0;
+    padding: 15px 5px;
     background-color: rgb(238, 2338, 238);
     border-radius: 0 2rem 2rem 0;
     background-color: #82b1f0;

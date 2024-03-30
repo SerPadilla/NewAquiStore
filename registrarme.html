@@ -12,12 +12,59 @@
         <link rel="stylesheet" href="./assets/css/06-productos.css">
         <link rel="stylesheet" href="./assets/css/07-footer.css">
         <link rel="stylesheet" href="./assets/css/08-mediaQueris.css">
+        <link rel="stylesheet" href="./assets/css/carrito.css">
         <link rel="icon" href="./assets/img/Logo_Aqui_Store-removebg-preview.png">
     </head>
 <body>
     <header class="cabecera">
         <div class="cabecera__container">
-            <a href="index.html"><img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aqui store"></a>
+            <div class="nav-1">
+                <div class="logo">
+                    <a class="enlaceLogo" href="index.html">
+                        <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aquiStore">
+                        <h1 class="tituloPrincipal">Aqui Store</h1>
+                    </a>
+                </div>
+                
+                <div class="buscador">
+                    <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?" title="Escribe el artículo que deseas buscar" id="busquedaInput"><a class="cabecera__lupa" href="#" onclick="realizarBusqueda()"><img src="./assets/icons/lupa.png" alt="lupa"></a>
+                </div>
+            </div>
+
+        <div class="nav-2">                
+            <div class="login">
+                <div id="usuario-section">
+                        <button id="btnRegistro" onclick="location.href='formulario.html'">Inicio o Registrarse</button>
+                        <button id="btnCerrarSesion" style="display: none; border: none; outline: none;" onclick="cerrarSesion()">Cerrar Sesión</button>
+                    <span id="nombreUsuario"></span>
+                </div>
+            </div>
+
+            <div class="carritoCompras">
+                <ul>
+                    <li class="submenu">
+                        <img src="./assets/icons/buy-svgrepo-com.svg" id="img-carrito" alt="carrito" width="40px"
+                            height="40px">
+                        <div id="carrito">
+                            <table id="lista-carrito">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
+                            <a href="#" id="enviar" class="btn-2">Enviar</a>
+                            <div id="informacion-carrito"></div>
+                            
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </header>
 
@@ -133,5 +180,7 @@
             <a href="#"><img class="logo-sena" src="./assets/img/logo_sena-removebg-preview.png" alt="logo-sena" width="150px" height="150px"></a>
         </div>
     </section>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
