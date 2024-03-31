@@ -49,12 +49,16 @@
     display: flex;
 }
 
-.tituloPrincipal:hover{
+.tituloPrincipal{
     transition: all .4s ease-in-out;
 }
 
 .tituloPrincipal:hover{
-    text-shadow: -5px -5px 5px blue;
+    text-shadow: 5px 5px 5px #2A7AE4;
+}
+
+.tituloPrincipal:hover{
+    text-shadow: -5px -5px 5px #2A7AE4;
 }
 
 .buscador{
@@ -116,6 +120,13 @@
     font-weight: 500;
     border-radius: 1rem;
     background-color: #2A7AE4;
+    transition: all .4s ease-in-out;
+}
+
+#btnRegistro:hover{
+    border: 1px solid #2A7AE4;
+    background-color: #FFF;
+    color: #2A7AE4;
 }
 
 .carritoCompras{

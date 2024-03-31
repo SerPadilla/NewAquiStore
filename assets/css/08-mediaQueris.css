@@ -13,21 +13,35 @@
         justify-content: space-evenly;
         align-items:center ;
         width: 100%;
-        height: 50vh;
+        height: 25vh;
         margin: 0 auto;
         text-align: center;
+    }
+    
+    .nav-1{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     
     .logo{
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 55%;
-        /* height: auto; */
+        width:45%;
     }
     
     .logo img{
+        width: 30%;
+    }
+
+    .enlaceLogo {
         width: 100%;
+    }
+
+    .tituloPrincipal{
+        width: 80%;
     }
     
     .buscador{
@@ -35,17 +49,21 @@
         justify-content: center;
         align-items: center;
         width: 90%;
-
     }
 
     .cabecera__buscador {
         width: 70%;
-        padding: 14px;
+        padding: 15px;
     }
 
     .cabecera__lupa {
         width: 20%;
-        padding: 10px;
+        padding: 15px;
+    }
+
+    .nav-2{
+        width: 100%;
+        height: 10%;
     }
 
     /* BANNER */
@@ -105,20 +123,29 @@
     .cabecera {
         flex-direction: column;
         width: 100%;
-        height: 40vh;
-        padding: 20px 0;
+        height: 45vh;
+        padding: 5px;
         margin-bottom: 20px;
     }
 
     .cabecera__container {
-        width: 80%;
+        width: 90%;
         margin: 0 auto;
         text-align: center;
         flex-direction: column;
     }
 
+    .nav-1{
+        width: 100%;
+        height: auto;
+    }
+    
+    .logo{
+        width: 100%;
+    }
+
     .cabecera__imagen {
-        width: 50%;
+        width: 100%;
         height: auto;
         padding: 25px;
         margin: 0 auto;
@@ -126,7 +153,7 @@
     }
 
     .cabecera__imagen img{
-        margin-left: 15px;
+        width: 100%;
     }
     
     .cabecera__buscador {
@@ -146,11 +173,29 @@
         padding-left: 20px;
         border-radius: 2rem;
         text-align: center;
-    }   
+    }  
+    
+    .nav-2{
+        width: 100%;
+        height: auto;
+    }
+
+    .login{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+    }
+    
+    #btnRegistro{
+        width: 100%;
+        height: auto;
+    }
 
     .usuario-section{
         margin: 10px 5px;
-        border: 2px solid red;
     }
 
                                            /* BANNER */
@@ -221,10 +266,14 @@
                                                 /* RODAPIE */
 
     .rodapie{
-        margin-top: 250px;
+        width: 100%;
+        height: 50vh;
     }
 
     .footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
         height: 85vh;
     }
@@ -234,7 +283,12 @@
     }
 
     .footer__logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100%;
+        height: 50%;
         margin: 0 auto;
         margin-top: 30px;
     }
@@ -248,7 +302,6 @@
     .footer__contacto {
         width: 100%;
         margin: 0 auto;
-        /* margin-bottom: 50px; */
     }
 
     .footer__titulo{
