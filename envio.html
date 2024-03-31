@@ -1,73 +1,132 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Envío</title>    
+    <title>Aquí Store Online</title>
+    <link rel="stylesheet" href="./assets/css/01-normalize.css">
+    <link rel="stylesheet" href="./assets/css/02-reset.css">
+    <link rel="stylesheet" href="./assets/css/03-main.css">
+    <link rel="stylesheet" href="./assets/css/04-nav.css">
+    <link rel="stylesheet" href="./assets/css/05-banner.css">
+    <link rel="stylesheet" href="./assets/css/06-productos.css">
+    <link rel="stylesheet" href="./assets/css/07-footer.css">
+    <link rel="stylesheet" href="./assets/css/08-mediaQueris.css">
+    <link rel="stylesheet" href="./assets/css/carrito.css">
     <link rel="stylesheet" href="./assets/css/envio.css">
-    
-    
-       
+    <link rel="icon" href="./assets/img/Logo_Aqui_Store-removebg-preview.png">
 </head>
 
 <body>
-    
 
-    <h1>Información de Envío</h1>
-    <p></p>
+    <header class="cabecera">
+        <div class="cabecera__container">
+            <div class="nav-1">
+                <div class="logo">
+                    <a class="enlaceLogo" href="index.html">
+                        <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png"
+                            alt="logo-aquiStore">
+                        <h1 class="tituloPrincipal">Aqui Store</h1>
+                    </a>
+                </div>
 
-    <div id="informacion-carrito"></div>
+                <div class="buscador">
+                    <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?"
+                        title="Escribe el artículo que deseas buscar" id="busquedaInput"><a class="cabecera__lupa"
+                        href="#" onclick="realizarBusqueda()"><img src="./assets/icons/lupa.png" alt="lupa"></a>
+                </div>
+            </div>
 
- 
-    <div id="seccion-pago">
-        <h2>Confirmar Método de Pago</h2>
-        <label>
-            <input type="radio" name="metodoPago" value="tarjeta" id="tarjeta" onclick="mostrarOcultarCampos('tarjeta')"> Tarjeta de Crédito
-        </label>
-        <label>
-            <input type="radio" name="metodoPago" value="transferencia" id="transferencia" onclick="mostrarOcultarCampos('transferencia')"> Transferencia Bancaria
-        </label>
-        <div id="datos-tarjeta" style="display: none;">
-            <h3>Ingrese los datos de la tarjeta:</h3>
-            <label>Número de Tarjeta: <input type="text" id="numeroTarjeta"></label><br>
-            <label>Código de Seguridad: <input type="text" id="codigoSeguridad"></label><br>
-            <label>Número de Cuotas: <input type="text" id="numCuotas"></label>
+            <div class="nav-2">
+                <div class="login">
+                    <div id="usuario-section">
+                        <button id="btnRegistro" onclick="location.href='formulario.html'">Inicio o Registrarse</button>
+                        <button id="btnCerrarSesion" style="display: none; border: none; outline: none;"
+                            onclick="cerrarSesion()">Cerrar Sesión</button>
+                        <span id="nombreUsuario"></span>
+                    </div>
+                </div>
+
+                <div class="carritoCompras">
+                    <ul>
+                        <li class="submenu">
+                            <img src="./assets/icons/buy-svgrepo-com.svg" id="img-carrito" alt="carrito" width="40px"
+                                height="40px">
+                            <div id="carrito">
+                                <table id="lista-carrito">
+                                    <thead>
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
+                                <a href="#" id="enviar" class="btn-2">Enviar</a>
+                                <div id="informacion-carrito"></div>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </header>
+
+    <div class="containerEnvio">
+
+        <h1>Información de Envío</h1>
+        <div id="informacion-carrito"></div>
+
+        <div id="seccion-pago">
+            <h2>Confirmar Método de Pago</h2>
+            <label>
+                <input type="radio" name="metodoPago" value="tarjeta" id="tarjeta"
+                    onclick="mostrarOcultarCampos('tarjeta')"> Tarjeta de Crédito
+            </label>
+            <label>
+                <input type="radio" name="metodoPago" value="transferencia" id="transferencia"
+                    onclick="mostrarOcultarCampos('transferencia')"> Transferencia Bancaria
+            </label>
+            <div id="datos-tarjeta" style="display: none;">
+                <h3>Ingrese los datos de la tarjeta:</h3>
+                <label>Número de Tarjeta: <input type="text" id="numeroTarjeta"></label><br>
+                <label>Código de Seguridad: <input type="text" id="codigoSeguridad"></label><br>
+                <label>Número de Cuotas: <input type="text" id="numCuotas"></label>
+            </div>
+
+            <div id="seleccion-banco" style="display: none;">
+                <h3>Seleccione el banco de su preferencia:</h3>
+                <select id="lista-bancos">
+                    <option value="banco1">Seleccione su Banco</option>
+                    <option value="banco2">Bancolombia</option>
+                    <option value="banco7">Davivienda</option>
+                    <option value="banco3">Banco De Bogota</option>
+                    <option value="banco4">Banco ITAU</option>
+                    <option value="banco5">Nequi</option>
+                    <option value="banco6">Daviplata</option>
+                </select><br>
+                <label>Valor a Pagar: <input type="text" id="valorPagar"></label>
+            </div>
         </div>
-    
-        <div id="seleccion-banco" style="display: none;">
-            <h3>Seleccione el banco de su preferencia:</h3>
-            <select id="lista-bancos">
-                <option value="banco1">Seleccione su Banco</option>
-                <option value="banco2">Bancolombia</option>
-                <option value="banco7">Davivienda</option>
-                <option value="banco3">Banco De Bogota</option>
-                <option value="banco4">Banco ITAU</option>
-                <option value="banco5">Nequi</option>
-                <option value="banco6">Daviplata</option>
-            </select><br>
-            <label>Valor a Pagar: <input type="text" id="valorPagar"></label>
+
+        <div id="seccion-direccion">
+            <h2>Confirmar Dirección de Envío</h2>
+            <label>Dirección: <input type="text" id="direccion"></label><br>
+            <button onclick="guardarDireccion()">Guardar Dirección</button>
+            <p id="mensaje-direccion"></p>
+
         </div>
-    </div>
-
-   
-    
-    <div id="seccion-direccion">
-        <h2>Confirmar Dirección de Envío</h2>
-        <label>Dirección: <input type="text" id="direccion"></label><br>
-        <button onclick="guardarDireccion()">Guardar Dirección</button>
-        <p id="mensaje-direccion"></p>
-
-    </div>
         <button id="btn-enviar" onclick="enviarConfirmacion()">Enviar</button>
         <button id="btn-regresar" onclick="regresarAIndex()">Regresar</button>
-       
-        
+    </div>
 
-<script src="envio.js"></script>
+    
+    <script src="envio.js"></script>
 </body>
+
 </html>
-
-
-
-
-
