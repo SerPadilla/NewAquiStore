@@ -1,0 +1,24 @@
+.social-icons{
+    position: fixed;
+    left: 15px;
+    top: 50%;
+}
+
+.social-icons a{
+    display: block;
+    width: 50%;
+    height: 50%;
+    margin-bottom: 10px;
+    background-color: transparent;
+}
+
+.social-icons img{
+    width: 30%;
+    height: 30%;
+    object-fit: contain;
+
+}
+
+.social-icons a:hover{
+    transform: scale(1.2);
+}

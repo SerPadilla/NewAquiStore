@@ -19,7 +19,53 @@
 <body>
     <header class="cabecera">
         <div class="cabecera__container">
-            <a href="index.html"><img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aqui store"></a>
+            <div class="nav-1">
+                <div class="logo">
+                    <a class="enlaceLogo" href="index.html">
+                        <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aquiStore">
+                        <h1 class="tituloPrincipal">Aqui Store</h1>
+                    </a>
+                </div>
+                
+                <div class="buscador">
+                    <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?" title="Escribe el artículo que deseas buscar" id="busquedaInput"><a class="cabecera__lupa" href="#" onclick="realizarBusqueda()"><img src="./assets/icons/lupa.png" alt="lupa"></a>
+                </div>
+            </div>
+
+        <div class="nav-2">                
+            <div class="login">
+                <div id="usuario-section">
+                        <button id="btnRegistro" onclick="location.href='formulario.html'">Inicio o Registrarse</button>
+                        <button id="btnCerrarSesion" style="display: none; border: none; outline: none;" onclick="cerrarSesion()">Cerrar Sesión</button>
+                    <span id="nombreUsuario"></span>
+                </div>
+            </div>
+
+            <div class="carritoCompras">
+                <ul>
+                    <li class="submenu">
+                        <img src="./assets/icons/buy-svgrepo-com.svg" id="img-carrito" alt="carrito" width="40px"
+                            height="40px">
+                        <div id="carrito">
+                            <table id="lista-carrito">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
+                            <a href="#" id="enviar" class="btn-2">Enviar</a>
+                            <div id="informacion-carrito"></div>
+                            
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </header>
 
@@ -99,7 +145,7 @@
             </div>
 
             <div class="starWars__producto">
-                <img src="./assets/img/Productos/Monitor Gamer IPS Iceberg Destiny 22″ 1ms 75Hz HDMI FullHD X221.png" alt="image8">
+                <img src="./assets/img/Productos/Monitor Gamer IPS Iceberg Destiny 22″ X221.png" alt="image8">
                 <div class="product-txt">
                     <h3>Monitor Gamer IPS Iceberg Destiny 22″ X221</h3>
                     <p class="precio">$499,000</p>
@@ -119,7 +165,7 @@
             </div>
 
             <div class="starWars__producto">
-                <img src="./assets/img/Productos/Teclado Mecánico Gamer T-DAGGER Adriatic RGB Multimedia.png" alt="image10">
+                <img src="./assets/img/Productos/Teclado Mecánico Gamer T-DAGGER Adriatic RGB.png" alt="image10">
                 <div class="product-txt">
                     <h3>Teclado Mecánico Gamer T-DAGGER Adriatic RGB</h3>
                     <p class="precio">$246,900</p>
@@ -228,6 +274,26 @@
                 </div>
             </div>
 
+            <div class="starWars__producto">
+                <img src="./assets/img/Productos/Apevia Premier 1000W 80 Plus GOLD ATX.png" alt="image21">
+                <div class="product-txt">
+                    <h3>Apevia Premier 1000W 80 Plus GOLD ATX</h3>
+                    <p class="precio">$549,900</p>
+                    <del class="precio antes">Antes $760,000</del>
+                    <a href="#" class="agregar-carrito btn-1" data-id="21">Disponible</a>
+                </div>
+            </div>
+
+            <div class="starWars__producto">
+                <img src="./assets/img/Productos/ARTIC Liquid Freezer II 240A A-RGB-2 x 120mm.png" alt="image22">
+                <div class="product-txt">
+                    <h3>ARTIC Liquid Freezer II 240A A-RGB-2 x 120mm</h3>
+                    <p class="precio">$566,900</p>
+                    <del class="precio antes">Antes $729,900</del>
+                    <a href="#" class="agregar-carrito btn-1" data-id="22">Agotado</a>
+                </div>
+            </div>
+
         </div>
     </section>
     
@@ -261,5 +327,6 @@
         </div>
     </section>
 
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

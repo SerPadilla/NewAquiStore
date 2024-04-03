@@ -10,6 +10,19 @@ body {
             height: 100vh;
         }
 
+        .containerEnvio{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            padding: 20px 10px;
+            background-color: white;
+            border: 1px solid #2A7AE4;
+            border-radius: 1rem;
+        }
+
         h1 {
             color: #333;
             margin-top: 100px;
@@ -44,26 +57,30 @@ body {
             max-height: 100px;
         }
         
-        #btn-enviar, #btn-regresar {
-
-    background-color: #4caf50;
-    color: #000000;
-    padding: 10px 168px; 
-    cursor: pointer;
-    border: none;
-    margin-right: 10px; 
-    font-size: 16px; 
-    box-sizing: border-box; 
+    #btn-enviar, #btn-regresar {
+        background-color: #2A7AE4;
+        color: white;
+        font-weight: 700;
+        padding: 10px 168px; 
+        cursor: pointer;
+        border: none;
+        border-radius: .8rem;
+        margin-right: 10px; 
+        font-size: 16px; 
+        box-sizing: border-box; 
+        transition: all .4s ease-in-out;
 }
 
 #btn-enviar:hover, #btn-regresar:hover {
-    background-color: #c9e4cb;
+    border: 1px solid #2A7AE4;
+    background-color: white;
+    color: black;
 }
 
 body {
-  margin-bottom: 200px; 
-  
+  margin-bottom: 200px;   
 }
+
 body {
   overflow-y: auto;
 }

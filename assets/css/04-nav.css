@@ -1,36 +1,81 @@
 .cabecera {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: auto;
-    height: 16vh;
-    padding: 0 40px;
-}
-
-.cabecera__imagen{
-    width: 30%;
-}
-
-.cabecera__imagen img {
     width: 100%;
-    height: 50%;
+    height: 25vh;
+    padding: 20px 5px;
 }
 
 .cabecera__container {
     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 25vh;
+    padding: 15px 0;
+    margin-top: 15px;
+}
+
+.nav-1{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 40%;
+    margin-bottom: 15px;
+}
+
+.cabecera__imagen{
+    width: 25%;
+    height: auto;
+}
+
+.cabecera__imagen img {
+    width: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+.logo{
+    display: flex;
     justify-content: center;
-    width: 45%;
-    /* border: 2px solid rebeccapurple; */
+    align-items: center;
+    width: 30%;
+}
+
+.enlaceLogo{
+    display: flex;
+}
+
+.tituloPrincipal{
+    transition: all .4s ease-in-out;
+}
+
+.tituloPrincipal:hover{
+    text-shadow: 5px 5px 5px #2A7AE4;
+}
+
+.tituloPrincipal:hover{
+    text-shadow: -5px -5px 5px #2A7AE4;
+}
+
+.buscador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
 }
 
 .cabecera__buscador {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: inherit;
-    margin: 4% 0;
-    padding: 2% 0 2% 5%;
+    width: 60%;
+    height: 40%;
+    margin: 5px 0px 5px 0;
+    padding: 15px 5px;
     text-align: justify;
     background-color: #82b1f0;
     border-radius: 2rem 0 0 2rem;
@@ -44,12 +89,51 @@
     display: flex;
     align-items: center;
     width: 5%;
-    height: inherit;
-    margin: 4% 0;
-    padding: 2% 0;
+    height: 40%;
+    margin: 5px 0px 5px 0;
+    padding: 15px 5px;
     background-color: rgb(238, 2338, 238);
     border-radius: 0 2rem 2rem 0;
     background-color: #82b1f0;
+}
+
+.nav-2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 40%;
+}
+
+#btnRegistro {
+    padding: 8px;
+    font-size: 20px;
+    color: white;
+    font-weight: 500;
+    border-radius: 1rem;
+    background-color: #2A7AE4;
+    transition: all .4s ease-in-out;
+}
+
+#btnRegistro:hover{
+    border: 1px solid #2A7AE4;
+    background-color: #FFF;
+    color: #2A7AE4;
+}
+
+.carritoCompras{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
 }
 
 .cabecera__btn-login {
