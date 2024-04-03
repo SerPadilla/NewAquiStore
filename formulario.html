@@ -5,71 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aquí Store Online</title>
-    <link rel="stylesheet" href="./assets/css/01-normalize.css">
-    <link rel="stylesheet" href="./assets/css/02-reset.css">
+    <link rel="stylesheet" href="./assets/css/01-normalize.css">   
     <link rel="stylesheet" href="./assets/css/03-main.css">
     <link rel="stylesheet" href="./assets/css/04-nav.css">
     <link rel="stylesheet" href="./assets/css/05-banner.css">
-    <link rel="stylesheet" href="./assets/css/06-productos.css">
     <link rel="stylesheet" href="./assets/css/07-footer.css">
+    
     <link rel="stylesheet" href="./assets/css/08-mediaQueris.css">
-    <link rel="stylesheet" href="./assets/css/carrito.css">
     <link rel="icon" href="./assets/img/Logo_Aqui_Store-removebg-preview.png">
 </head>
 
 <body>
 
-    <header class="cabecera">
-        <div class="cabecera__container">
-            <div class="nav-1">
-                <div class="logo">
-                    <a class="enlaceLogo" href="index.html">
-                        <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aquiStore">
-                        <h1 class="tituloPrincipal">Aqui Store</h1>
-                    </a>
-                </div>
-                
-                <div class="buscador">
-                    <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?" title="Escribe el artículo que deseas buscar" id="busquedaInput"><a class="cabecera__lupa" href="#" onclick="realizarBusqueda()"><img src="./assets/icons/lupa.png" alt="lupa"></a>
-                </div>
-            </div>
-
-        <div class="nav-2">                
-            <div class="login">
-                <div id="usuario-section">
-                        <button id="btnRegistro" onclick="location.href='formulario.html'">Inicio o Registrarse</button>
-                        <button id="btnCerrarSesion" style="display: none; border: none; outline: none;" onclick="cerrarSesion()">Cerrar Sesión</button>
-                    <span id="nombreUsuario"></span>
-                </div>
-            </div>
-
-            <div class="carritoCompras">
-                <ul>
-                    <li class="submenu">
-                        <img src="./assets/icons/buy-svgrepo-com.svg" id="img-carrito" alt="carrito" width="40px"
-                            height="40px">
-                        <div id="carrito">
-                            <table id="lista-carrito">
-                                <thead>
-                                    <tr>
-                                        <th>Imagen</th>
-                                        <th>Nombre</th>
-                                        <th>Precio</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                            <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
-                            <a href="#" id="enviar" class="btn-2">Enviar</a>
-                            <div id="informacion-carrito"></div>
-                            
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </header>
+    
 
     <div class="formulario">
         <div class="formulario-login container">
@@ -130,21 +78,7 @@
         </div>
     </section>
 
-    <script src="assets/js/main.js">
-        function registrarUsuario(event) {
-            event.preventDefault();
-
-            var nombre = document.getElementById("nombre").value;
-
-            var usuarioAutenticado = {
-                nombre: nombre,
-            };
-
-            localStorage.setItem("usuarioAutenticado", JSON.stringify(usuarioAutenticado));
-
-            window.location.href = "index.html";
-        }
-    </script>
-
+   
+<script src="formulario.js"></script>
 </body>
 </html>
