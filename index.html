@@ -11,107 +11,108 @@
     <link rel="stylesheet" href="./assets/css/03-main.css">
     <link rel="stylesheet" href="./assets/css/04-nav.css">
     <link rel="stylesheet" href="./assets/css/05-banner.css">
+    <link rel="stylesheet" href="./assets/css/socialicons.css">
+   
     <link rel="stylesheet" href="./assets/css/06-productos.css">
     <link rel="stylesheet" href="./assets/css/07-footer.css">
     <link rel="stylesheet" href="./assets/css/08-mediaQueris.css">
     <link rel="stylesheet" href="./assets/css/carrito.css">
     <link rel="icon" href="./assets/img/Logo_Aqui_Store-removebg-preview.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
-
+    
     <header class="cabecera">
         <div class="cabecera__container">
-            <div class="nav-1">
-                <div class="logo">
-                    <a class="enlaceLogo" href="index.html">
-                        <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aquiStore">
-                        <h1 class="tituloPrincipal">Aqui Store</h1>
-                    </a>
-                </div>
-                
-                <div class="buscador">
-                    <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?" title="Escribe el artículo que deseas buscar" id="busquedaInput"><a class="cabecera__lupa" href="#" onclick="realizarBusqueda()"><img src="./assets/icons/lupa.png" alt="lupa"></a>
-                </div>
+
+            <div class="logo">
+                <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aquiStore">
             </div>
 
-        <div class="nav-2">                
-            <div class="login">
-                <div id="usuario-section">
-                        <button id="btnRegistro" onclick="location.href='formulario.html'">Inicio o Registrarse</button>
-                        <button id="btnCerrarSesion" style="display: none; border: none; outline: none;" onclick="cerrarSesion()">Cerrar Sesión</button>
-                    <span id="nombreUsuario"></span>
-                </div>
+            <div class="buscador">
+                <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?" title="Escribe el artículo que deseas buscar" id="busquedaInput">
+                <a class="cabecera__lupa" href="#" onclick="realizarBusqueda()">
+                    <img src="./assets/icons/lupa.png" alt="lupa">
+                </a>          
             </div>
-
-            <div class="carritoCompras">
-                <ul>
-                    <li class="submenu">
-                        <img src="./assets/icons/buy-svgrepo-com.svg" id="img-carrito" alt="carrito" width="40px"
-                            height="40px">
-                        <div id="carrito">
-                            <table id="lista-carrito">
-                                <thead>
-                                    <tr>
-                                        <th>Imagen</th>
-                                        <th>Nombre</th>
-                                        <th>Precio</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                            <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
-                            <a href="#" id="enviar" class="btn-2">Enviar</a>
-                            <div id="informacion-carrito"></div>
-                            
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            
+            
         </div>
-    </header>
-
+        
         <script>
             var articulos = [
-                { titulo: 'Artículo 1', contenido: ' combo boar' },
-                { titulo: 'Artículo 2', contenido: 'Contenido del artículo 2...' },
+              { titulo: 'Artículo 1', contenido: ' combo boar' },
+              { titulo: 'Artículo 2', contenido: 'Contenido del artículo 2...' },
+              
             ];
-
+          
             function realizarBusqueda() {
-                var busqueda = document.getElementById("busquedaInput").value.toLowerCase();
-
-                var resultados = articulos.filter(function (articulo) {
-                    return articulo.titulo.toLowerCase().includes(busqueda) || articulo.contenido.toLowerCase().includes(busqueda);
-                });
-
-                mostrarResultados(resultados);
+              var busqueda = document.getElementById("busquedaInput").value.toLowerCase();
+          
+              var resultados = articulos.filter(function(articulo) {
+                return articulo.titulo.toLowerCase().includes(busqueda) || articulo.contenido.toLowerCase().includes(busqueda);
+              });
+          
+              mostrarResultados(resultados);
             }
-
+          
             function mostrarResultados(resultados) {
-                var resultadosDiv = document.getElementById("resultados");
-                resultadosDiv.innerHTML = "";
-
-                if (resultados.length === 0) {
-                    resultadosDiv.innerHTML = "No se encontraron resultados.";
-                } else {
-                    resultados.forEach(function (articulo) {
-                        var articuloDiv = document.createElement("div");
-                        articuloDiv.innerHTML = "<h3>" + articulo.titulo + "</h3><p>" + articulo.contenido + "</p>";
-                        resultadosDiv.appendChild(articuloDiv);
-                    });
-                }
+              var resultadosDiv = document.getElementById("resultados");
+              resultadosDiv.innerHTML = ""; 
+          
+              if (resultados.length === 0) {
+                resultadosDiv.innerHTML = "No se encontraron resultados.";
+              } else {
+                resultados.forEach(function(articulo) {
+                  var articuloDiv = document.createElement("div");
+                  articuloDiv.innerHTML = "<h3>" + articulo.titulo + "</h3><p>" + articulo.contenido + "</p>";
+                  resultadosDiv.appendChild(articuloDiv);
+                });
+              }
             }
-        </script>
+          </script>
+        
+        <header>
+            <h1>Aqui Store</h1>
+            <div id="usuario-section">
+                <button id="btnRegistro" onclick="location.href='formulario.html'">Inicio o Registrarse</button>
+            <button id="btnCerrarSesion" style="display: none; border: none; outline: none;" onclick="cerrarSesion()">Cerrar Sesión</button>
+            <span id="nombreUsuario"></span>          
+        </div>
 
+        </header>       
+
+        <div>
+            <ul>
+                <li class="submenu">
+                    <img src="./assets/icons/buy-svgrepo-com.svg" id="img-carrito"
+                        alt="carrito" width="40px" height="40px">
+                    <div id="carrito">
+                        <table id="lista-carrito">
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
+                        <a href="#" id="enviar" class="btn-2">Enviar</a>
+                        <div id="informacion-carrito"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
         <script>
             var enviarButton = document.getElementById("enviar");
-            enviarButton.addEventListener("click", function() {
-            
-                var productosSeleccionados = obtenerProductosSeleccionados();                
-            
-                localStorage.setItem('productosSeleccionados', JSON.stringify(productosSeleccionados));                
-                
+            enviarButton.addEventListener("click", function () {
+                var productosSeleccionados = obtenerProductosSeleccionados();
+                localStorage.setItem('productosSeleccionados', JSON.stringify(productosSeleccionados));
                 window.location.href = "envio.html";
             });
         
@@ -124,9 +125,9 @@
                     var nombre = item.querySelector("td:nth-child(2)").textContent;
                     var precio = item.querySelector("td:nth-child(3)").textContent;
                     var producto = {
-                        imagen: item.querySelector("td:nth-child(1)").textContent,
-                        nombre: item.querySelector("td:nth-child(2)").textContent,
-                        precio: item.querySelector("td:nth-child(3)").textContent
+                        imagen: imagen,
+                        nombre: nombre,
+                        precio: precio
                     };
                     productos.push(producto);
                 });
@@ -134,46 +135,49 @@
                 return productos;
             }
         </script>
+        
+    </header>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             verificarSesion();
         });
-
+    
         function verificarSesion() {
             var usuarioAutenticado = obtenerUsuarioAutenticado();
-
+    
             if (usuarioAutenticado) {
                 mostrarUsuarioAutenticado(usuarioAutenticado);
             }
         }
-
+    
         function obtenerUsuarioAutenticado() {
             var usuarioJSON = localStorage.getItem("usuarioAutenticado");
             return usuarioJSON ? JSON.parse(usuarioJSON) : null;
         }
-
+    
         function mostrarUsuarioAutenticado(usuario) {
             var usuarioSection = document.getElementById("usuario-section");
             var btnRegistro = document.getElementById("btnRegistro");
             var nombreUsuario = document.getElementById("nombreUsuario");
             var btnCerrarSesion = document.getElementById("btnCerrarSesion");
-
+    
             btnRegistro.style.display = "none";
             nombreUsuario.textContent = "Hola " + usuario.nombre;
             btnCerrarSesion.style.display = "inline";
-
-
+    
+            
             usuarioSection.appendChild(nombreUsuario);
-            usuarioSection.appendChild(document.createTextNode(" "));
+            usuarioSection.appendChild(document.createTextNode(" ")); 
             usuarioSection.appendChild(btnCerrarSesion);
         }
-
+    
         function cerrarSesion() {
             localStorage.removeItem("usuarioAutenticado");
             location.reload();
         }
-    </script>
+    </script>    
+   
 
     <section class="banner">
         <div class="banner__info">
@@ -199,6 +203,7 @@
 
             <div class="product-content">
 
+
                 <script>
                     var articulos = [
                       { titulo: 'Artículo 1', contenido: 'Contenido del artículo 1...' },
@@ -213,7 +218,7 @@
                       { titulo: 'Artículo 2', contenido: 'Contenido del artículo 2...' },
                       {
                         titulo: 'Combo PC Pro Gamer MOBA',
-                        contenido: 'Combo PC Pro Gamer MOBA + Combo Periféricos...',
+                        contenido: 'Combo PC Pro Gamer MOBA ',
                         precio: '$2,499.000',
                         precioAntes: 'Antes $3.499,000',
                         enlaceAgregarCarrito: '#',
@@ -238,294 +243,354 @@
                         imagen: './assets/img/Productos/Mouse Gamer T-DAGGER Captain RGB.png'
                       }
 
-                    ];
+                    ]; 
 
-                    function mostrarResultados(resultados) {
-                        var resultadosDiv = document.getElementById("resultados");
-                        resultadosDiv.innerHTML = "";
+function mostrarResultados(resultados) {
+  var resultadosDiv = document.getElementById("resultados");
+  resultadosDiv.innerHTML = ""; 
 
-                        if (resultados.length === 0) {
-                            resultadosDiv.innerHTML = "No se encontraron resultados.";
-                        } else {
-                            resultados.forEach(function (articulo) {
-                                var articuloDiv = document.createElement("div");
-                                articuloDiv.innerHTML = `
+  if (resultados.length === 0) {
+    resultadosDiv.innerHTML = "No se encontraron resultados.";
+  } else {
+    resultados.forEach(function(articulo) {
+      var articuloDiv = document.createElement("div");
+      articuloDiv.innerHTML = `
         <div class="resultado-item">
-            <h3>${articulo.titulo}</h3>
-            <img src="${articulo.imagen}" alt="${articulo.titulo}" class="imagen-resultados">
-            <p>${articulo.contenido}</p>
-            <p class="precio">${articulo.precio}</p>
-            <del class="precio antes">${articulo.precioAntes}</del>
-            <a href="${articulo.enlaceAgregarCarrito}" class="agregar-carrito btn-1" data-id="1">Agregar</a>
-        </div>`;
-                                resultadosDiv.appendChild(articuloDiv);
-                            });
-                        }
-                    }
-                </script>
+          <h3>${articulo.titulo}</h3>
+          <img src="${articulo.imagen}" alt="${articulo.titulo}" class="imagen-resultados">
+          <p>${articulo.contenido}</p>
+          <p class="precio">${articulo.precio}</p>
+          <del class="precio antes">${articulo.precioAntes}</del>
+          <a href="${articulo.enlaceAgregarCarrito}" class="agregar-carrito btn-1" data-id="1">Agregar</a>
+        </div>
+      `;
+      resultadosDiv.appendChild(articuloDiv);
+    });
+  }
+}
 
-                <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Combo PC Pro Gamer MOBA +Combo Periféricos.png" alt="image2">
+
+
+                    </script>
+                       
+                    <div class="starWars__producto">
+                        <img src="./assets/img/Productos/Portátil ASUS ROG G513RC Ryzen 7.png" alt="image1">
+                        <div class="product-txt">
+                            <h3>Portátil ASUS ROG G513RC Ryzen 7-6800H, RTX 3050, RAM 16GB, SSD 512GB</h3>
+                            <p class="precio">$6'850,000</p>
+                            <del class="precio antes">Antes $7'690,000</del>
+                            <a href="#" class="agregar-carrito btn-1" data-id="1">Agregar</a>
+                        </div>
+                    </div>
+
+                    <div class="starWars__producto">
+                        <img src="./assets/img/Productos/Portátil MSI KATANA CORE i7-13700H, RTX 4060 8GB, RAM 16GB, SSD 512GB.png" alt="image2">
+                        <div class="product-txt">
+                            <h3>Portátil MSI KATANA CORE i7-13700H, RTX 4060 8GB, RAM 16GB, SSD 512GB</h3>
+                            <p class="precio">$6'990,000</p>
+                            <del class="precio antes">Antes $8'190,000</del>
+                            <a href="#" class="agregar-carrito btn-1" data-id="2">Agregar</a>
+                        </div>
+                    </div>
+
+
+                       <div class="starWars__producto">
+                    <img src="./assets/img/Productos/Combo PC Pro Gamer MOBA +Combo Periféricos.png" alt="image3">
                     <div class="product-txt">
                         <h3>Combo PC Pro Gamer MOBA + Combo Periféricos</h3>
                         <p class="precio">$2'499,000</p>
                         <del class="precio antes">Antes $3'499,000</del>
-                        <a href="#" class="agregar-carrito btn-1" data-id="2">Agregar</a>
-                    </div>
-                </div>
-
-                <div class="starWars__producto">
-                    <img src="./assets/img/Productos/PC Gamer Ultra-GeForce RTX 4070 12GB.png" alt="image3">
-                    <div class="product-txt">
-                        <h3>PC Gamer Ultra-GeForce RTX 4070 12GB</h3>
-                        <p class="precio">$5'999,000</p>
-                        <del class="precio antes">Antes $7'999,000</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="3">Agregar</a>
                     </div>
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/PC Pro Gamer MOBA-GeForce GTX 1650 4GB.png" alt="image4">
+                    <img src="./assets/img/Productos/PC Gamer Ultra-GeForce RTX 4070 12GB.png" alt="image4">
                     <div class="product-txt">
-                        <h3>PC Pro Gamer MOBA-GeForce GTX 1650 4GB</h3>
-                        <p class="precio">$2'089,000</p>
-                        <del class="precio antes">Antes $3'499,000</del>
+                        <h3>PC Gamer Ultra-GeForce RTX 4070 12GB</h3>
+                        <p class="precio">$5'999,000</p>
+                        <del class="precio antes">Antes $7'999,000</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="4">Agregar</a>
                     </div>
                 </div>
 
-                <div class="starWars__producto starWars__ocultar">
-                    <img src="./assets/img/Productos/PC Gamer NVIDIA BATTLEBOX ESSENTIAL.png" alt="image5">
+                <div class="starWars__producto">
+                    <img src="./assets/img/Productos/PC Pro Gamer MOBA-GeForce GTX 1650 4GB.png" alt="image5">
                     <div class="product-txt">
-                        <h3>PC Gamer NVIDIA BATTLEBOX ESSENTIAL</h3>
-                        <p class="precio">$3'399,000</p>
-                        <del class="precio antes">Antes $5'999,000</del>
+                        <h3>PC Pro Gamer MOBA-GeForce GTX 1650 4GB</h3>
+                        <p class="precio">$2'089,000</p>
+                        <del class="precio antes">Antes $3'499,000</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="5">Agregar</a>
                     </div>
                 </div>
 
                 <div class="starWars__producto starWars__ocultar">
-                    <img src="./assets/img/Productos/Chasis Caja Iceberg Mech One-Ventiladores ARGB + Doble Tira LED M-RGB + 2 Vidrios con Protector Metálico.png"
-                        alt="image6">
+                    <img src="./assets/img/Productos/PC Gamer NVIDIA BATTLEBOX ESSENTIAL.png" alt="image6">
                     <div class="product-txt">
-                        <h3>Chasis Caja Iceberg Mech One ARGB + Doble Tira LED RGB </h3>
-                        <p class="precio">$1'079,000</p>
-                        <del class="precio antes">Antes $1'499,900</del>
+                        <h3>PC Gamer NVIDIA BATTLEBOX ESSENTIAL</h3>
+                        <p class="precio">$3'399,000</p> 
+                        <del class="precio antes">Antes $5'999,000</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="6">Agregar</a>
                     </div>
                 </div>
 
-                <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Chasis Caja Iceberg Glacius Vidrio Templado + Ventilador Led 120mm.png"
-                        alt="image7">
+                <div class="starWars__producto starWars__ocultar">
+                    <img src="./assets/img/Productos/Chasis Caja Iceberg Mech One-Ventiladores ARGB + Doble Tira LED M-RGB + 2 Vidrios con Protector Metálico.png" alt="image7">
                     <div class="product-txt">
-                        <h3>Chasis Caja Iceberg Glacius + Ventilador Led</h3>
-                        <p class="precio">$209,900</p>
-                        <del class="precio antes">Antes $382,000</del>
+                        <h3>Chasis Caja Iceberg Mech One ARGB + Doble Tira LED RGB </h3>
+                        <p class="precio">$1'079,000</p>
+                        <del class="precio antes">Antes $1'499,900</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="7">Agregar</a>
                     </div>
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/monitor.png" alt="image8">
+                    <img src="./assets/img/Productos/Chasis Caja Iceberg Glacius Vidrio Templado + Ventilador Led 120mm.png" alt="image8">
                     <div class="product-txt">
-                        <h3>Monitor Gamer IPS Iceberg Destiny 22″ X221</h3>
-                        <p class="precio">$499,000</p>
-                        <del class="precio antes">Antes $799,000</del>
+                        <h3>Chasis Caja Iceberg Glacius + Ventilador Led</h3>
+                        <p class="precio">$209,900</p>
+                        <del class="precio antes">Antes $382,000</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="8">Agregar</a>
                     </div>
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img//Productos/Combo 4 en 1 T-DAGGER LEGION con Teclado + Mouse + Diadema + Mousepad Gaming.png"
-                        alt="image9">
+                    <img src="./assets/img/Productos/Monitor Gamer IPS Iceberg Destiny 22″ X221.png" alt="image9">
                     <div class="product-txt">
-                        <h3>Combo 4 en 1 T-DAGGER LEGION</h3>
-                        <p class="precio">$209,900</p>
-                        <del class="precio antes">Antes $300,000</del>
+                        <h3>Monitor Gamer IPS Iceberg Destiny 22″ X221</h3>
+                        <p class="precio">$499,000</p>
+                        <del class="precio antes">Antes $799,000</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="9">Agregar</a>
                     </div>
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Teclado.png" alt="image10">
+                    <img src="./assets/img/Productos/Monitor LG 27GR75Q-B Gamer UltraGear™ QHD 27”.png" alt="image10">
                     <div class="product-txt">
-                        <h3>Teclado Mecánico Gamer T-DAGGER Adriatic RGB</h3>
-                        <p class="precio">$246,900</p>
-                        <del class="precio antes">Antes $329,900</del>
+                        <h3>Monitor LG 27GR75Q-B Gamer UltraGear™ QHD 27” 165 Hz 1 ms GtG HDR10 sRGB99%</h3>
+                        <p class="precio">$1'690,000</p>
+                        <del class="precio antes">Antes $1'990,000</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="10">Agregar</a>
                     </div>
                 </div>
 
-                <div class="starWars__producto starWars__ocultar">
-                    <img src="./assets/img/Productos/Mouse Gamer T-DAGGER Captain RGB.png" alt="image11">
+                <div class="starWars__producto">
+                    <img src="./assets/img//Productos/Combo 4 en 1 T-DAGGER LEGION con Teclado + Mouse + Diadema + Mousepad Gaming.png" alt="image11">
                     <div class="product-txt">
-                        <h3>Mouse Gamer T-DAGGER Captain RGB</h3>
-                        <p class="precio">$129,900</p>
-                        <del class="precio antes">Antes $179,900</del>
+                        <h3>Combo 4 en 1 T-DAGGER LEGION</h3>
+                        <p class="precio">$209,900</p>
+                        <del class="precio antes">Antes $300,000</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="11">Agregar</a>
                     </div>
                 </div>
 
-                <div class="starWars__producto starWars__ocultar">
-                    <img src="./assets/img/Productos/Diadema T-DAGGER COOK Gaming 40mm T-RGH100.png" alt="image12">
+                <div class="starWars__producto">
+                    <img src="./assets/img/Productos/Teclado Mecánico Gamer T-DAGGER Adriatic RGB.png" alt="image12">
                     <div class="product-txt">
-                        <h3>Diadema T-DAGGER COOK Gaming 40mm T-RGH100</h3>
-                        <p class="precio">$67,900</p>
-                        <del class="precio antes">Antes $99,900</del>
+                        <h3>Teclado Mecánico Gamer T-DAGGER Adriatic RGB</h3>
+                        <p class="precio">$246,900</p>
+                        <del class="precio antes">Antes $329,900</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="12">Agregar</a>
                     </div>
                 </div>
 
-                <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Diadema.png" alt="image13">
+                <div class="starWars__producto starWars__ocultar">
+                    <img src="./assets/img/Productos/Mouse Gamer T-DAGGER Captain RGB.png" alt="image13">
                     <div class="product-txt">
-                        <h3>Diadema Gamer MSI Immerse GH30 con Micrófono</h3>
-                        <p class="precio">$169,900</p>
-                        <del class="precio antes">Antes $229,900</del>
-                        <a href="#" class="agregar-carrito btn-1" data-id="13">Agregar</a>
-                    </div>
-                </div>
-
-                <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Micrófono para PC T-DAGGER Oriole + Tripode + Filtro.png"
-                        alt="image14">
-                    <div class="product-txt">
-                        <h3>Micrófono para PC T-DAGGER Oriole + Tripode + Filtro</h3>
-                        <p class="precio">$119,900</p>
-                        <del class="precio antes">Antes $172,000</del>
+                        <h3>Mouse Gamer T-DAGGER Captain RGB</h3>
+                        <p class="precio">$129,900</p>
+                        <del class="precio antes">Antes $179,900</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="14">Agregar</a>
                     </div>
                 </div>
 
-                <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Silla Gamer Iceberg GC80 - Material Premium - Reposabrazos Acolchado - Colores.png"
-                        alt="image15">
+                <div class="starWars__producto starWars__ocultar">
+                    <img src="./assets/img/Productos/Diadema T-DAGGER COOK Gaming 40mm T-RGH100.png" alt="image15">
                     <div class="product-txt">
-                        <h3>Silla Gamer Iceberg GC80 / Material Premium</h3>
-                        <p class="precio">$889,000</p>
-                        <del class="precio antes">Antes $1'628,000</del>
+                        <h3>Diadema T-DAGGER COOK Gaming 40mm T-RGH100</h3>
+                        <p class="precio">$67,900</p>
+                        <del class="precio antes">Antes $99,900</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="15">Agregar</a>
                     </div>
                 </div>
 
+
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Silla Gamer Iceberg GC95-Iluminación ARGB borde Grueso-Cuero PU.png"
-                        alt="image16">
+                    <img src="./assets/img/Productos/Diadema.png" alt="image16">
                     <div class="product-txt">
-                        <h3>Silla Gamer Iceberg GC95-Iluminación ARGB borde Grueso</h3>
-                        <p class="precio">$1'299,000</p>
-                        <del class="precio antes">Antes $1'999,000</del>
+                        <h3>Diadema Gamer MSI Immerse GH30 con Micrófono</h3>
+                        <p class="precio">$169,900</p>
+                        <del class="precio antes">Antes $229,900</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="16">Agregar</a>
                     </div>
                 </div>
+
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/ZOTAC GAMING GeForce RTX 4090 Trinity OC 24GB GDDR6X.png"
-                        alt="image17">
+                    <img src="./assets/img/Productos/Auriculares Corsair HS60 HAPTIC estéreo.png" alt="image17">
                     <div class="product-txt">
-                        <h3>Tarjeta gráfica ZOTAC GAMING GeForce RTX 4090</h3>
-                        <p class="precio">$8'899,000</p>
-                        <del class="precio antes">Antes $13'999,000</del>
+                        <h3>Auriculares Corsair HS60 HAPTIC estéreo</h3>
+                        <p class="precio">$450,000</p>
+                        <del class="precio antes">Antes $599,900</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="17">Agregar</a>
                     </div>
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/ZOTAC GAMING GeForce RTX 3060 Twin Edge 12GB G6.png" alt="image18">
+                    <img src="./assets/img/Productos/Micrófono para PC T-DAGGER Oriole + Tripode + Filtro.png" alt="image18">
                     <div class="product-txt">
-                        <h3>ZOTAC GAMING GeForce RTX 3060 Twin Edge 12GB G6 (DESCUENTO)</h3>
-                        <p class="precio">$1'899,000</p>
-                        <del class="precio antes">Antes $2'999,000</del>
+                        <h3>Micrófono para PC T-DAGGER Oriole + Tripode + Filtro</h3>
+                        <p class="precio">$119,900</p>
+                        <del class="precio antes">Antes $172,000</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="18">Agregar</a>
                     </div>
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Capturadora de Video Elgato HD60-S para Grabar PlayStation 4 y Xbox One.png"
-                        alt="image19">
+                    <img src="./assets/img/Productos/Silla Gamer Iceberg GC80 - Material Premium - Reposabrazos Acolchado - Colores.png" alt="image19">
                     <div class="product-txt">
-                        <h3>Capturadora de Video Elgato HD60-S para PlayStation 4 y Xbox One</h3>
-                        <p class="precio">$699,900</p>
-                        <del class="precio antes">Antes $1'358,000</del>
+                        <h3>Silla Gamer Iceberg GC80 / Material Premium</h3>
+                        <p class="precio">$889,000</p>
+                        <del class="precio antes">Antes $1'628,000</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="19">Agregar</a>
                     </div>
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Refrigeración Líquida PCCOOLER GI-CX360 ARGB Radiador Triple 360mm.png"
-                        alt="image20">
+                    <img src="./assets/img/Productos/Silla Gamer Iceberg GC95-Iluminación ARGB borde Grueso-Cuero PU.png" alt="image20">
                     <div class="product-txt">
-                        <h3>Refrigeración Líquida PCCOOLER GI-CX360 ARGB Radiador 360mm</h3>
-                        <p class="precio">$599,000</p>
-                        <del class="precio antes">Antes $799,000</del>
+                        <h3>Silla Gamer Iceberg GC95-Iluminación ARGB borde Grueso</h3>
+                        <p class="precio">$1'299,000</p>
+                        <del class="precio antes">Antes $1'999,000</del>
                         <a href="#" class="agregar-carrito btn-1" data-id="20">Agregar</a>
                     </div>
                 </div>
 
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/Apevia Premier 1000W 80 Plus GOLD ATX.png" alt="image21">
+                    <img src="./assets/img/Productos/Tarjeta Gráfica ASUS KO Geforce RTX 3060 Ti V2 OC Edition 8GB GDDR6.png" alt="image21">
+                    <div class="product-txt">
+                        <h3>Tarjeta Gráfica ASUS KO Geforce RTX 3060 Ti V2 OC Edition 8GB GDDR6</h3>
+                        <p class="precio">$3'450,000</p>
+                        <del class="precio antes">Antes $4'699,000</del>
+                        <a href="#" class="agregar-carrito btn-1" data-id="21">Agregar</a>
+                    </div>
+                </div>
+
+                <div class="starWars__producto">
+                    <img src="./assets/img/Productos/ZOTAC GAMING GeForce RTX 4090 Trinity OC 24GB GDDR6X.png" alt="image22">
+                    <div class="product-txt">
+                        <h3>Tarjeta gráfica ZOTAC GAMING GeForce RTX 4090</h3>
+                        <p class="precio">$8'899,000</p>
+                        <del class="precio antes">Antes $13'999,000</del>
+                        <a href="#" class="agregar-carrito btn-1" data-id="22">Agregar</a>
+                    </div>
+                </div>
+
+                <div class="starWars__producto">
+                    <img src="./assets/img/Productos/ZOTAC GAMING GeForce RTX 3060 Twin Edge 12GB G6.png" alt="image23">
+                    <div class="product-txt">
+                        <h3>ZOTAC GAMING GeForce RTX 3060 Twin Edge 12GB G6 (DESCUENTO)</h3>
+                        <p class="precio">$1'899,000</p>
+                        <del class="precio antes">Antes $2'999,000</del>
+                        <a href="#" class="agregar-carrito btn-1" data-id="23">Agregar</a>
+                    </div>
+                </div>
+
+                <div class="starWars__producto">
+                    <img src="./assets/img/Productos/Capturadora de Video Elgato HD60-S para Grabar PlayStation 4 y Xbox One.png" alt="image24">
+                    <div class="product-txt">
+                        <h3>Capturadora de Video Elgato HD60-S para PlayStation 4 y Xbox One</h3>
+                        <p class="precio">$699,900</p>
+                        <del class="precio antes">Antes $1'358,000</del>
+                        <a href="#" class="agregar-carrito btn-1" data-id="24">Agregar</a>
+                    </div>
+                </div>
+
+                <div class="starWars__producto">
+                    <img src="./assets/img/Productos/Refrigeración Líquida PCCOOLER GI-CX360 ARGB Radiador Triple 360mm.png" alt="image25">
+                    <div class="product-txt">
+                        <h3>Refrigeración Líquida PCCOOLER GI-CX360 ARGB Radiador 360mm</h3>
+                        <p class="precio">$599,000</p>
+                        <del class="precio antes">Antes $799,000</del>
+                        <a href="#" class="agregar-carrito btn-1" data-id="25">Agregar</a>
+                    </div>
+                </div>
+
+                <div class="starWars__producto">
+                    <img src="./assets/img/Productos/Apevia Premier 1000W 80 Plus GOLD ATX.png" alt="image26">
                     <div class="product-txt">
                         <h3>Apevia Premier 1000W 80 Plus GOLD ATX</h3>
                         <p class="precio">$549,900</p>
                         <del class="precio antes">Antes $760,000</del>
-                        <a href="#" class="agregar-carrito btn-1" data-id="21">Agregar</a>
+                        <a href="#" class="agregar-carrito btn-1" data-id="26">Agregar</a>
                     </div>
                 </div>
     
                 <div class="starWars__producto">
-                    <img src="./assets/img/Productos/ARTIC Liquid Freezer II 240A A-RGB-2 x 120mm.png" alt="image22">
+                    <img src="./assets/img/Productos/ARTIC Liquid Freezer II 240A A-RGB-2 x 120mm.png" alt="image27">
                     <div class="product-txt">
                         <h3>ARTIC Liquid Freezer II 240A A-RGB-2 x 120mm</h3>
                         <p class="precio">$566,900</p>
                         <del class="precio antes">Antes $729,900</del>
-                        <a href="#" class="agregar-carrito btn-1" data-id="22">Agregar</a>
+                        <a href="#" class="agregar-carrito btn-1" data-id="27">Agregar</a>
                     </div>
                 </div>
-    
 
-            </div>
+                <div class="starWars__producto">
+                    <img src="./assets/img/Productos/Fuente de Alimentación XPG 550W 80 Plus.png" alt="image28">
+                    <div class="product-txt">
+                        <h3>Fuente de Alimentación XPG 550W 80 Plus</h3>
+                        <p class="precio">$305,000</p>
+                        <del class="precio antes">Antes $415,900</del>
+                        <a href="#" class="agregar-carrito btn-1" data-id="28">Agregar</a>
+                    </div>
+                </div>
+            
         </main>
 
-        <section class="rodapie">
-            <div class="footer">
-                <div class="footer__container">
-                    <div class="footer__logo">
-                        <img class="footer_logoImg" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo" width="150px" height="150px">
-                    </div>
-                    <div class="footer__links">
-                        <a class="footer__link" href="#">Quienes Somos</a>
-                        <a class="footer__link" href="#">Politicas de seguridad</a>
-                        <a class="footer__link" href="#">Programa de fidelidad</a>
-                        <a class="footer__link" href="#">Nuestras tiendas</a>
-                        <a class="footer__link" href="#">Quiero ser franquiciado</a>
-                        <a class="footer__link" href="#">Anuncie aqui!</a>
-                    </div>
-                    <div class="footer__contacto">
-                        <form action="#">
-                            <h2 class="footer__titulo">Chatea con nosostros</h2>
-                            <label class="footer__nombre" for="nombre">Nombre</label>
-                            <input class="footer__input" id="nombre" type="text" required
-                                placeholder="Equipo Aquí Store">
-                            <textarea class="footer__textarea" name="text-area" id="" cols="20" rows="5"
-                                placeholder="Escribe tu mensaje"></textarea>
-                            <button class="footer__btn-enviar-mensaje">Enviar mensaje</button>
-                        </form>
-                    </div>
+    <section class="rodapie">
+        <div class="footer">
+            <div class="footer__container">
+                <div class="footer__logo"><img src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo" width="250px" height="250px"></div>
+                <div class="footer__links">
+                    <a class="footer__link" href="#">Quienes Somos</a>
+                    <a class="footer__link" href="#">Politicas de seguridad</a>
+                    <a class="footer__link" href="#">Programa de fidelidad</a>
+                    <a class="footer__link" href="#">Nuestras tiendas</a>
+                    <a class="footer__link" href="#">Quiero ser franquiciado</a>
+                    <a class="footer__link" href="#">Anuncie aqui!</a>
                 </div>
+                <div class="footer__contacto">
+                    <form action="#">
+                        <h2 class="footer__titulo">Chatea con nosostros</h2>
+                        <label class="footer__nombre" for="nombre">Nombre</label>
+                        <input class="footer__input" id="nombre" type="text" required placeholder="Equipo Aquí Store">
+                        <textarea class="footer__textarea" name="text-area" id="" cols="20" rows="5" placeholder="Escribe tu mensaje"></textarea>
+                        <button class="footer__btn-enviar-mensaje">Enviar mensaje</button>
+                    </form>
+                </div>
+                
             </div>
-            <div class="final">
-                <a href="#"><img class="logo-team" src="./assets/img/logo-removebg-team-preview.png" alt="logo-team"
-                        width="150px" height="150px"></a>
-                <a href="#">
-                    <p>Creado por ADSO - TEAM 07</p>
-                </a>
-                <a href="#"><img class="logo-sena" src="./assets/img/logo_sena-removebg-preview.png" alt="logo-sena"
-                        width="150px" height="150px"></a>
-            </div>
-        </section>
+        </div>
 
+
+        <div class="social-icons">
+            <a href="#"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-256.png" alt="Facebook"></a>
+            <a href="#"><img src="https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Instagram-256.png" alt="Instagram"></a>
+            <a href="#"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/youtube3-256.png" alt="Youtube"></a>
+            <a href="#"><img src="https://cdn4.iconfinder.com/data/icons/social-media-black-white-2/1227/X-256.png" alt="Twitter"></a>
+            <a href="https://api.whatsapp.com/send?phone=573103148599&text=%F0%9F%98%80Deseo%20saber%20m%C3%A1s%F0%9F%98%83"><img src="./assets/icons/whatsapp-svgrepo-com.png" alt="Whatsapp"></a>
+        </div>
+
+        <div class="final">
+            <a href="#"><img class="logo-team" src="./assets/img/logo-removebg-team-preview.png" alt="logo-team" width="150px" height="150px"></a>
+            <a href="#"><p>Creado por ADSO - TEAM 07</p></a>
+            <a href="#"><img class="logo-sena" src="./assets/img/logo_sena-removebg-preview.png" alt="logo-sena" width="150px" height="150px"></a>
+        </div>
+        
+    </section>
+
+    <script src="./assets/js/main.js"></script>
         <script src="./assets/js/main.js"></script>
         <script src="envio.js"></script>
 </body>
-
 </html>

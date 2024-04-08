@@ -18,7 +18,7 @@ body {
 button {
     border: none;
     outline: none;
-    padding: 0;
+    padding: 0px;
     margin: 0;
     background: none;
     cursor: pointer;
@@ -290,21 +290,59 @@ button {
       color: rgb(0, 0, 0);
     }
 
-    #resultados {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
+    #resultados {  
+    flex-wrap: wrap;
+    margin-top: 55px;
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px, 1fr)) ;
+    gap: 20px;
+      
+      
+    }
+
+    .resultado-content {
+        margin-top: 55px;
+        display: grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px, 1fr)) ;
+        gap: 20px;
+    }
+    
+    .resultado-item{
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 35px;
+    border-radius: 1rem;
+    transition: all 0.4s;
     }
    
-.resultado-item {
-  width: 100%;  
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ddd; 
-  
+    .resultado-item:hover {
+        transform: scale(1.1);
+        box-shadow: 5px 5px 10px black;
+        background-color: #87b7f7;
+        color: white;
+   
 }
+
+
+
 .imagen-resultados {
-    width: 100px; 
-    /* height: 100px;  */
-    object-fit: cover; 
+    width: 150px;
+    height: 130px;
+    margin-bottom: 10px;
 }
+
+/* Sergio Corrección Buscador*/
+
+
+.buscador {
+    display: flex;
+    align-items: center; 
+}
+
+.cabecera__lupa img {
+    width: 200px; 
+    height: 16px; /* Establece la altura deseada para la imagen de la lupa */
+}
+
+
+
