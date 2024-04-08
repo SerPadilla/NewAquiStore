@@ -11,7 +11,7 @@ function mostrarOcultarCampos(metodoPago) {
 
 
 function enviarConfirmacion() {
-       
+    
     alert('¡Gracias por tu compra! Se ha enviado una notificación de confirmación.');
     window.location.href = "index.html";
 }
@@ -37,7 +37,7 @@ productosSeleccionados.forEach(function (producto) {
     var fila = document.createElement("tr");
     fila.innerHTML = "<td><img src='" + producto.imagen + "' alt='" + producto.nombre + "'></td><td>" + producto.nombre + "</td><td>" + producto.precio + "</td>";
     tbody.appendChild(fila);
-  
+
     // Normalizar el precio eliminando caracteres no numéricos y convertirlo a número
     var precioNumerico = parseFloat(producto.precio.replace(/[^\d.-]/g, ''));
     if (!isNaN(precioNumerico)) {
@@ -61,12 +61,9 @@ function formatearPrecio(precio) {
 return parseFloat(precio).toLocaleString('es-CO', { minimumFractionDigits: 2 });
 }
 
-
-
 // Mostrar el total en la tabla
 filaTotal.innerHTML = "<td colspan='2'><strong>Total:</strong></td><td>" + totalFormateado + "</td>";
 
-  
     var metodoPagoRadios = document.querySelectorAll('input[name="metodoPago"]');
     metodoPagoRadios.forEach(function(radio) {
         radio.addEventListener('change', function() {
@@ -80,12 +77,10 @@ filaTotal.innerHTML = "<td colspan='2'><strong>Total:</strong></td><td>" + total
         });
     });
 
-   
     function enviarConfirmacion() {
         
         alert('¡Gracias por tu compra! Se ha enviado una notificación de confirmación.');
 
-        
         window.location.href = "index.html";
     }
 
