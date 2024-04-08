@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +10,7 @@
     <link rel="stylesheet" href="./assets/css/03-main.css">
     <link rel="stylesheet" href="./assets/css/04-nav.css">
     <link rel="stylesheet" href="./assets/css/05-banner.css">
-    <link rel="stylesheet" href="./assets/css/socialicons.css">
-   
+    <link rel="stylesheet" href="./assets/css/socialicons.css">   
     <link rel="stylesheet" href="./assets/css/06-productos.css">
     <link rel="stylesheet" href="./assets/css/07-footer.css">
     <link rel="stylesheet" href="./assets/css/08-mediaQueris.css">
@@ -25,20 +23,53 @@
     
     <header class="cabecera">
         <div class="cabecera__container">
-
-            <div class="logo">
-                <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aquiStore">
-            </div>
-
-            <div class="buscador">
-                <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?" title="Escribe el artículo que deseas buscar" id="busquedaInput">
-                <a class="cabecera__lupa" href="#" onclick="realizarBusqueda()">
-                    <img src="./assets/icons/lupa.png" alt="lupa">
-                </a>          
+            <div class="nav-1">
+                <div class="logo">
+                    <img class="cabecera__imagen" src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo-aquiStore">
+                    <h1>Aqui Store</h1>
+                </div>
+                
+                <div class="buscador">
+                    <input class="cabecera__buscador" type="search" placeholder="¿Qué deseas buscar?" title="Escribe el artículo que deseas buscar" id="busquedaInput">
+                    <a class="cabecera__lupa" href="#" onclick="realizarBusqueda()">
+                        <img src="./assets/icons/lupa.png" alt="lupa">
+                    </a>          
+                </div>            
             </div>
             
-            
+            <div class="nav-2">
+                    <div>
+                        <ul>
+                            <li class="submenu">
+                                <img src="./assets/icons/buy-svgrepo-com.svg" id="img-carrito"
+                                alt="carrito" width="40px" height="40px">
+                                <div id="carrito">
+                                <table id="lista-carrito">
+                                    <thead>
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
+                                <a href="#" id="enviar" class="btn-2">Enviar</a>
+                                <div id="informacion-carrito"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="usuario-section">
+                    <button id="btnRegistro" onclick="location.href='formulario.html'">Inicio o Registrarse</button>
+                    <button id="btnCerrarSesion" style="display: none; border: none; outline: none;" onclick="cerrarSesion()">Cerrar Sesión</button>
+                    <span id="nombreUsuario"></span>          
+                </div>  
+            </div>
         </div>
+    </header> 
         
         <script>
             var articulos = [
@@ -52,62 +83,27 @@
           
               var resultados = articulos.filter(function(articulo) {
                 return articulo.titulo.toLowerCase().includes(busqueda) || articulo.contenido.toLowerCase().includes(busqueda);
-              });
-          
-              mostrarResultados(resultados);
+            });
+        
+            mostrarResultados(resultados);
             }
-          
+        
             function mostrarResultados(resultados) {
-              var resultadosDiv = document.getElementById("resultados");
-              resultadosDiv.innerHTML = ""; 
-          
-              if (resultados.length === 0) {
+                var resultadosDiv = document.getElementById("resultados");
+                resultadosDiv.innerHTML = ""; 
+
+                if (resultados.length === 0) {
                 resultadosDiv.innerHTML = "No se encontraron resultados.";
-              } else {
+            } else {
                 resultados.forEach(function(articulo) {
-                  var articuloDiv = document.createElement("div");
-                  articuloDiv.innerHTML = "<h3>" + articulo.titulo + "</h3><p>" + articulo.contenido + "</p>";
-                  resultadosDiv.appendChild(articuloDiv);
+                var articuloDiv = document.createElement("div");
+                articuloDiv.innerHTML = "<h3>" + articulo.titulo + "</h3><p>" + articulo.contenido + "</p>";
+                resultadosDiv.appendChild(articuloDiv);
                 });
-              }
             }
-          </script>
-        
-        <header>
-            <h1>Aqui Store</h1>
-            <div id="usuario-section">
-                <button id="btnRegistro" onclick="location.href='formulario.html'">Inicio o Registrarse</button>
-            <button id="btnCerrarSesion" style="display: none; border: none; outline: none;" onclick="cerrarSesion()">Cerrar Sesión</button>
-            <span id="nombreUsuario"></span>          
-        </div>
+            }
+        </script>
 
-        </header>       
-
-        <div>
-            <ul>
-                <li class="submenu">
-                    <img src="./assets/icons/buy-svgrepo-com.svg" id="img-carrito"
-                        alt="carrito" width="40px" height="40px">
-                    <div id="carrito">
-                        <table id="lista-carrito">
-                            <thead>
-                                <tr>
-                                    <th>Imagen</th>
-                                    <th>Nombre</th>
-                                    <th>Precio</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                        <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
-                        <a href="#" id="enviar" class="btn-2">Enviar</a>
-                        <div id="informacion-carrito"></div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        
         <script>
             var enviarButton = document.getElementById("enviar");
             enviarButton.addEventListener("click", function () {
@@ -135,8 +131,6 @@
                 return productos;
             }
         </script>
-        
-    </header>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {

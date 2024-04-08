@@ -1,5 +1,6 @@
 .cabecera {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -23,6 +24,7 @@
     width: 100%;
     height: 40%;
     margin-bottom: 15px;
+
 }
 
 .cabecera__imagen{
@@ -99,7 +101,8 @@
 
 .nav-2{
     display: flex;
-    justify-content: space-between;
+    flex-direction: row-reverse;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     height: 40%;
