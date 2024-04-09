@@ -18,12 +18,7 @@
 
 .submenu #carrito {
     display: none;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    height: 400px;
-    border-radius: .8rem;
-    border: 2px solid #2A7AE4;
+    border-radius: 1rem;
 }
 
 .submenu:hover #carrito {
