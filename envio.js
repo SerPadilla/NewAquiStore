@@ -103,3 +103,4 @@ filaTotal.innerHTML = "<td colspan='2'><strong>Total:</strong></td><td>" + total
     }
 
 
+

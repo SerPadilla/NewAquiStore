@@ -106,33 +106,33 @@
             }
         </script>
 
-        <script>
-            var enviarButton = document.getElementById("enviar");
-            enviarButton.addEventListener("click", function () {
-                var productosSeleccionados = obtenerProductosSeleccionados();
-                localStorage.setItem('productosSeleccionados', JSON.stringify(productosSeleccionados));
-                window.location.href = "envio.html";
-            });
-        
-            function obtenerProductosSeleccionados() {
-                var productos = [];
-                var listaCarrito = document.getElementById("lista-carrito").querySelectorAll("tbody tr");
-        
-                listaCarrito.forEach(function (item) {
-                    var imagen = item.querySelector("td:nth-child(1) img").src;
-                    var nombre = item.querySelector("td:nth-child(2)").textContent;
-                    var precio = item.querySelector("td:nth-child(3)").textContent;
-                    var producto = {
-                        imagen: item.querySelector("td:nth-child(1)").textContent,
-                        nombre: item.querySelector("td:nth-child(2)").textContent,
-                        precio: item.querySelector("td:nth-child(3)").textContent
-                    };
-                    productos.push(producto);
-                });
-        
-                return productos;
-            }
-        </script>
+<script>
+    var enviarButton = document.getElementById("enviar");
+    enviarButton.addEventListener("click", function () {
+        var productosSeleccionados = obtenerProductosSeleccionados();
+        localStorage.setItem('productosSeleccionados', JSON.stringify(productosSeleccionados));
+        window.location.href = "envio.html";
+    });
+
+    function obtenerProductosSeleccionados() {
+        var productos = [];
+        var listaCarrito = document.getElementById("lista-carrito").querySelectorAll("tbody tr");
+
+        listaCarrito.forEach(function (item) {
+            var imagen = item.querySelector("td:nth-child(1) img").src;
+            var nombre = item.querySelector("td:nth-child(2)").textContent;
+            var precio = item.querySelector("td:nth-child(3)").textContent;
+            var producto = {
+                imagen: imagen,
+                nombre: nombre,
+                precio: precio
+            };
+            productos.push(producto);
+        });
+
+        return productos;
+    }
+</script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -242,27 +242,28 @@
                     ];
 
                     function mostrarResultados(resultados) {
-                        var resultadosDiv = document.getElementById("resultados");
-                        resultadosDiv.innerHTML = "";
+  var resultadosDiv = document.getElementById("resultados");
+  resultadosDiv.innerHTML = ""; 
 
-                        if (resultados.length === 0) {
-                            resultadosDiv.innerHTML = "No se encontraron resultados.";
-                        } else {
-                            resultados.forEach(function (articulo) {
-                                var articuloDiv = document.createElement("div");
-                                articuloDiv.innerHTML = `
+  if (resultados.length === 0) {
+    resultadosDiv.innerHTML = "No se encontraron resultados.";
+  } else {
+    resultados.forEach(function(articulo) {
+      var articuloDiv = document.createElement("div");
+      articuloDiv.innerHTML = `
         <div class="resultado-item">
-            <h3>${articulo.titulo}</h3>
-            <img src="${articulo.imagen}" alt="${articulo.titulo}" class="imagen-resultados">
-            <p>${articulo.contenido}</p>
-            <p class="precio">${articulo.precio}</p>
-            <del class="precio antes">${articulo.precioAntes}</del>
-            <a href="${articulo.enlaceAgregarCarrito}" class="agregar-carrito btn-1" data-id="1">Agregar</a>
-        </div>`;
-                                resultadosDiv.appendChild(articuloDiv);
-                            });
-                        }
-                    }
+          <h3>${articulo.titulo}</h3>
+          <img src="${articulo.imagen}" alt="${articulo.titulo}" class="imagen-resultados">
+          <p>${articulo.contenido}</p>
+          <p class="precio">${articulo.precio}</p>
+          <del class="precio antes">${articulo.precioAntes}</del>
+          <a href="${articulo.enlaceAgregarCarrito}" class="agregar-carrito btn-1" data-id="1">Agregar</a>
+        </div>
+      `;
+      resultadosDiv.appendChild(articuloDiv);
+    });
+  }
+}
                 </script>
                        
                     <div class="starWars__producto">
