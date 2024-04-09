@@ -92,6 +92,12 @@
     padding: 7px 25px;
     border-radius: 5px;
     color: #FFFFFF;
-    background-color: #4d4bc8;
-    
+    background-color: #2A7AE4;    
+}
+
+.product-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

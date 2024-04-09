@@ -18,6 +18,12 @@
 
 .submenu #carrito {
     display: none;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    border-radius: .8rem;
+    border: 2px solid #2A7AE4;
 }
 
 .submenu:hover #carrito {
@@ -93,8 +99,9 @@ p {
     padding: 7px 25px;
     border-radius: 5px;
     color: #FFFFFF;
-    background-color: #4d4bc8;
+    background-color: #2A7AE4;
 }
+
 .a {
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.733);
 	cursor: pointer;
