@@ -42,11 +42,16 @@
 
 
 .starWars__producto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    padding: 35px;
+    padding: 20px;
     border-radius: 1rem;
     transition: all 0.4s;
+    border: 2px solid #2A7AE4;
 }
 
 .starWars__producto:hover {
@@ -54,6 +59,7 @@
     box-shadow: 5px 5px 10px black;
     background-color: #87b7f7;
     color: white;
+    border: 1px solid black;
 }
 
 .starWars__producto img {
