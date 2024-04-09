@@ -123,9 +123,9 @@
                     var nombre = item.querySelector("td:nth-child(2)").textContent;
                     var precio = item.querySelector("td:nth-child(3)").textContent;
                     var producto = {
-                        imagen: imagen,
-                        nombre: nombre,
-                        precio: precio
+                        imagen: item.querySelector("td:nth-child(1)").textContent,
+                        nombre: item.querySelector("td:nth-child(2)").textContent,
+                        precio: item.querySelector("td:nth-child(3)").textContent
                     };
                     productos.push(producto);
                 });
@@ -214,7 +214,7 @@
                       { titulo: 'Artículo 2', contenido: 'Contenido del artículo 2...' },
                       {
                         titulo: 'Combo PC Pro Gamer MOBA',
-                        contenido: 'Combo PC Pro Gamer MOBA ',
+                        contenido: 'Combo PC Pro Gamer MOBA + Combo Periféricos...',
                         precio: '$2,499.000',
                         precioAntes: 'Antes $3.499,000',
                         enlaceAgregarCarrito: '#',
@@ -239,33 +239,31 @@
                         imagen: './assets/img/Productos/Mouse Gamer T-DAGGER Captain RGB.png'
                       }
 
-                    ]; 
+                    ];
 
-function mostrarResultados(resultados) {
-  var resultadosDiv = document.getElementById("resultados");
-  resultadosDiv.innerHTML = ""; 
+                    function mostrarResultados(resultados) {
+                        var resultadosDiv = document.getElementById("resultados");
+                        resultadosDiv.innerHTML = "";
 
-  if (resultados.length === 0) {
-    resultadosDiv.innerHTML = "No se encontraron resultados.";
-  } else {
-    resultados.forEach(function(articulo) {
-      var articuloDiv = document.createElement("div");
-      articuloDiv.innerHTML = `
+                        if (resultados.length === 0) {
+                            resultadosDiv.innerHTML = "No se encontraron resultados.";
+                        } else {
+                            resultados.forEach(function (articulo) {
+                                var articuloDiv = document.createElement("div");
+                                articuloDiv.innerHTML = `
         <div class="resultado-item">
-          <h3>${articulo.titulo}</h3>
-          <img src="${articulo.imagen}" alt="${articulo.titulo}" class="imagen-resultados">
-          <p>${articulo.contenido}</p>
-          <p class="precio">${articulo.precio}</p>
-          <del class="precio antes">${articulo.precioAntes}</del>
-          <a href="${articulo.enlaceAgregarCarrito}" class="agregar-carrito btn-1" data-id="1">Agregar</a>
-        </div>
-      `;
-      resultadosDiv.appendChild(articuloDiv);
-    });
-  }
-}
-
-</script>
+            <h3>${articulo.titulo}</h3>
+            <img src="${articulo.imagen}" alt="${articulo.titulo}" class="imagen-resultados">
+            <p>${articulo.contenido}</p>
+            <p class="precio">${articulo.precio}</p>
+            <del class="precio antes">${articulo.precioAntes}</del>
+            <a href="${articulo.enlaceAgregarCarrito}" class="agregar-carrito btn-1" data-id="1">Agregar</a>
+        </div>`;
+                                resultadosDiv.appendChild(articuloDiv);
+                            });
+                        }
+                    }
+                </script>
                        
                     <div class="starWars__producto">
                         <img src="./assets/img/Productos/Portátil ASUS ROG G513RC Ryzen 7.png" alt="image1">
@@ -583,7 +581,5 @@ function mostrarResultados(resultados) {
     </section>
 
     <script src="./assets/js/main.js"></script>
-        <script src="./assets/js/main.js"></script>
-        <script src="envio.js"></script>
 </body>
 </html>
