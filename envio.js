@@ -11,8 +11,6 @@ function mostrarOcultarCampos(metodoPago) {
 
 
 function enviarConfirmacion() {
-       
-    alert('¡Gracias por tu compra! Se ha enviado una notificación de confirmación.');
     window.location.href = "index.html";
 }
 
@@ -81,13 +79,7 @@ filaTotal.innerHTML = "<td colspan='2'><strong>Total:</strong></td><td>" + total
     });
 
    
-    function enviarConfirmacion() {
-        
-        alert('¡Gracias por tu compra! Se ha enviado una notificación de confirmación.');
-
-        
-        window.location.href = "index.html";
-    }
+   
 
     function mostrarOcultarCampos(opcion) {
         var datosTarjeta = document.getElementById('datos-tarjeta');
