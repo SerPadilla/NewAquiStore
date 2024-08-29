@@ -52,7 +52,6 @@
     border-radius: 1rem;
     transition: all 0.4s;
     border: 2px solid #2A7AE4;
-    overflow: hidden;
 }
 
 .starWars__producto:hover {
