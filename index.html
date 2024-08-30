@@ -106,33 +106,35 @@
             }
         </script>
 
-        <script>
-            var enviarButton = document.getElementById("enviar");
-            enviarButton.addEventListener("click", function () {
-                var productosSeleccionados = obtenerProductosSeleccionados();
-                localStorage.setItem('productosSeleccionados', JSON.stringify(productosSeleccionados));
-                window.location.href = "envio.html";
-            });
-        
-            function obtenerProductosSeleccionados() {
-                var productos = [];
-                var listaCarrito = document.getElementById("lista-carrito").querySelectorAll("tbody tr");
-        
-                listaCarrito.forEach(function (item) {
-                    var imagen = item.querySelector("td:nth-child(1) img").src;
-                    var nombre = item.querySelector("td:nth-child(2)").textContent;
-                    var precio = item.querySelector("td:nth-child(3)").textContent;
-                    var producto = {
-                        imagen: item.querySelector("td:nth-child(1)").textContent,
-                        nombre: item.querySelector("td:nth-child(2)").textContent,
-                        precio: item.querySelector("td:nth-child(3)").textContent
-                    };
-                    productos.push(producto);
-                });
-        
-                return productos;
-            }
-        </script>
+<script>
+    var enviarButton = document.getElementById("enviar");
+    enviarButton.addEventListener("click", function () {
+        var productosSeleccionados = obtenerProductosSeleccionados();
+        localStorage.setItem('productosSeleccionados', JSON.stringify(productosSeleccionados));
+        window.location.href = "envio.html";
+    });
+
+    function obtenerProductosSeleccionados() {
+        var productos = [];
+        var listaCarrito = document.getElementById("lista-carrito").querySelectorAll("tbody tr");
+
+        listaCarrito.forEach(function (item) {
+            var imagen = item.querySelector("td:nth-child(1) img").src;
+            var nombre = item.querySelector("td:nth-child(2)").textContent;
+            var precio = item.querySelector("td:nth-child(3)").textContent;
+            var producto = {
+                imagen: imagen,
+                nombre: nombre,
+                precio: precio
+            };
+            productos.push(producto);
+        });
+
+        return productos;
+    }
+    
+</script>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -237,8 +239,90 @@
                         precioAntes: 'Antes $179,900',
                         enlaceAgregarCarrito: '#',
                         imagen: './assets/img/Productos/Mouse Gamer T-DAGGER Captain RGB.png'
-                      }
+                      },
 
+                      { titulo: 'Artículo 5', contenido: 'Contenido del artículo 5...' },
+                      {
+                        titulo: 'Portátil ASUS ROG G513RC Ryzen 7-6800H',
+                        contenido: 'RTX 3050, RAM 16GB, SSD 512GB',
+                        precio: '$6,850.000',
+                        precioAntes: 'Antes $179.900',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/Portátil ASUS ROG G513RC Ryzen 7.png'
+                      },
+
+                      { titulo: 'Artículo 6', contenido: 'Contenido del artículo 6...' },
+                      {
+                        titulo: 'Fuente de Alimentación',
+                        contenido: 'XPG 550W 80 Plus',
+                        precio: '$305,000',
+                        precioAntes: 'Antes $415,900',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/Fuente de Alimentación XPG 550W 80 Plus.png'
+                      },
+
+                      { titulo: 'Artículo 7', contenido: 'Contenido del artículo 7...' },
+                      {
+                        titulo: 'Monitor LG 27GR75Q-B Gamer UltraGear™',
+                        contenido: 'QHD 27” 165 Hz 1 ms GtG HDR10 sRGB99%',
+                        precio: '$1,690.000',
+                        precioAntes: 'Antes $1,990.000',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/Monitor LG 27GR75Q-B Gamer UltraGear™ QHD 27”.png'
+                      },
+                     
+                      { titulo: 'Artículo 8', contenido: 'Contenido del artículo 8...' },
+                      {
+                        titulo: 'ARTIC Liquid Freezer II',
+                        contenido: '240A A-RGB-2 x 120mm',
+                        precio: '$566,900',
+                        precioAntes: 'Antes $729,900',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/Apevia Premier 1000W 80 Plus GOLD ATX.png'
+                      },
+
+                      { titulo: 'Artículo 9', contenido: 'Contenido del artículo 9...' },
+                      {
+                        titulo: 'Apevia Premier 1000W 80',
+                        contenido: '240A A-RGB-2 x 120mm',
+                        precio: '$549,000',
+                        precioAntes: 'Antes $760,000',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/Apevia Premier 1000W 80 Plus GOLD ATX.png'
+                      },
+
+                      
+                      { titulo: 'Artículo 10', contenido: 'Contenido del artículo 10...' },
+                      {
+                        titulo: 'Refrigeración Líquida PCCOOLER',
+                        contenido: 'GI-CX360 ARGB Radiador 360mm',
+                        precio: '$599,000',
+                        precioAntes: 'Antes $799,000',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/Refrigeración Líquida PCCOOLER GI-CX360 ARGB Radiador Triple 360mm.png'
+                      },
+
+                      { titulo: 'Artículo 10', contenido: 'Contenido del artículo 10...' },
+                      {
+                        titulo: 'Refrigeración Líquida PCCOOLER',
+                        contenido: 'GI-CX360 ARGB Radiador 360mm',
+                        precio: '$599,000',
+                        precioAntes: 'Antes $799,000',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/Refrigeración Líquida PCCOOLER GI-CX360 ARGB Radiador Triple 360mm.png'
+                      },
+
+                      { titulo: 'Artículo 11', contenido: 'Contenido del artículo 11...' },
+                      {
+                        titulo: 'Capturadora de Video Elgato HD60-S',
+                        contenido: 'para PlayStation 4 y Xbox One',
+                        precio: '$699,000',
+                        precioAntes: 'Antes $1,358,000',
+                        enlaceAgregarCarrito: '#',
+                        imagen: './assets/img/Productos/Capturadora de Video Elgato HD60-S para Grabar PlayStation 4 y Xbox One.png'
+                      },
+
+                     
                     ];
 
                     function mostrarResultados(resultados) {
@@ -552,13 +636,15 @@
             <div class="footer__container">
                 <div class="footer__logo"><img src="./assets/img/Logo_Aqui_Store-removebg-preview.png" alt="logo" width="250px" height="250px"></div>
                 <div class="footer__links">
-                    <a class="footer__link" href="#">Quienes Somos</a>
+                    <a class="footer__link" href="equipodesarrollo.html">❗Equipo de Desarrollo💻❗</a>
+                    <hr>
                     <a class="footer__link" href="#">Politicas de seguridad</a>
                     <a class="footer__link" href="#">Programa de fidelidad</a>
                     <a class="footer__link" href="#">Nuestras tiendas</a>
                     <a class="footer__link" href="#">Quiero ser franquiciado</a>
                     <a class="footer__link" href="#">Anuncie aqui!</a>
                 </div>
+                
                 <div class="footer__contacto">
                     <form action="#">
                         <h2 class="footer__titulo">Chatea con nosostros</h2>

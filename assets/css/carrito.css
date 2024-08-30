@@ -18,12 +18,16 @@
 
 .submenu #carrito {
     display: none;
+<<<<<<< HEAD
     justify-content: center;
     align-items: center;
     width: 400px;
     height: auto;
     border-radius: .8rem;
     border: 2px solid #2A7AE4;
+=======
+    border-radius: 1rem;
+>>>>>>> main
 }
 
 .submenu:hover #carrito {
